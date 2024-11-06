@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import HeroCard from "../../../components/HeroCard";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
-import { Link } from "react-router-dom";
 
 const LoginPage = () => {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+  });
+  
+  const navigate = useNavigate();
+
+  const handleInput = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Redirect to admin page
+    navigate('/admin');
+  };
+
   return (
     <>
-      <HeroCard title={"Please log In"} />
-      <div className="min-h-screen bg-[#ebf4ff] flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6">
+   
+      <div className="min-h-screen bg-yellow-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8 px-6">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-10 w-auto "
@@ -19,13 +39,13 @@ const LoginPage = () => {
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm leading-5 text-black font-bold max-w">
-            Shri Chhatrapati Shivaji College of Pharmacy
+          Mahafencing Association
           </p>
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <div className=" py-8 px-4  sm:px-10">
-            <form>
+          <div className="py-8 px-4 sm:px-10">
+            <form onSubmit={handleSubmit}>
               <div>
                 <label
                   htmlFor="email"
@@ -34,14 +54,16 @@ const LoginPage = () => {
                   Email address
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
-                  <FaUser className="absolute textred left-3 top-3 text-[#1f2937]" />
+                  <FaUser className="absolute text-gray-700 left-3 top-3" />
                   <input
                     id="email"
-                    name="email"
+                    name="username"
                     placeholder="user@example.com"
                     type="email"
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    value={formData.username}
+                    onChange={handleInput}
+                    className="w-full pl-10 pr-4 py-3 border border-b-[5px] border-r-[5px] border-[#06B4DB] rounded-t-xl"
                   />
                 </div>
               </div>
@@ -54,17 +76,16 @@ const LoginPage = () => {
                   Password
                 </label>
                 <div className="mt-1 relative rounded-md shadow-sm">
-                  {" "}
-                  {/* Add relative here */}
-                  <RiLockPasswordFill className="absolute text-gray-700 left-3 top-3" />{" "}
-                  {/* Correct color class */}
+                  <RiLockPasswordFill className="absolute text-gray-700 left-3 top-3" />
                   <input
                     id="password"
                     name="password"
                     type="password"
                     placeholder="Enter Your Password"
                     required
-                    className="w-full pl-10 pr-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    value={formData.password}
+                    onChange={handleInput}
+                    className="w-full pl-10 pr-4 py-3 rounded-lg   border border-b-[5px] border-r-[5px] border-[#06B4DB] rounded-t-xl"
                   />
                 </div>
               </div>
@@ -95,14 +116,12 @@ const LoginPage = () => {
 
               <div className="mt-6">
                 <span className="block w-full rounded-md shadow-sm">
-                 <Link to="/admin/dashboard">
-                 <button
+                  <button
                     type="submit"
-                    className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gray-900"
+                    className="text-black hover:bg-green-200 text-lg md:text-xl font-semibold px-6  md:px-8 py-2 bg-white border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
                   >
                     Sign in
                   </button>
-                  </Link>
                 </span>
               </div>
             </form>

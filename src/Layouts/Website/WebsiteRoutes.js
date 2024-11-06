@@ -1,8 +1,12 @@
 import { FaBuilding, FaHome, FaInfoCircle, FaPhone } from "react-icons/fa";
 
 const WebsiteRoutes = [
-  { path: "/", label: "HOME", icon: <FaHome /> },
+  // { path: "/", label: "HOME", icon: <FaHome /> },
   { path: "/about", label: "ABOUT", icon: <FaInfoCircle /> },
+
+  { path: "/gallery", label: "GALLERY", icon: <FaPhone /> },
+  { path: "/contact", label: "CONTACT", icon: <FaPhone /> },
+
   {
     label: "HISTORY",
     icon: <FaInfoCircle />,
@@ -102,10 +106,9 @@ const WebsiteRoutes = [
       },
     ],
   },
-  { path: "/gallery", label: "GALLERY", icon: <FaPhone /> },
-  { path: "/contact", label: "CONTACT", icon: <FaPhone /> },
+
   {
-    label: "LOGIN_REGISTER",
+    label: "LOGIN REGISTER",
     icon: <FaPhone />,
     submenu: [
       {

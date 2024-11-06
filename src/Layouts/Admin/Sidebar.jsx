@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import routes from "./AdminRoutes";
+import { FaTachometerAlt } from "react-icons/fa";
 
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   const [openMenuIndex, setOpenMenuIndex] = useState(null);
@@ -15,12 +16,14 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
 
   return (
     <nav
-      className={`fixed z-20 w-64 h-full bg-gray-700 text-white transition-transform transform ${
+      className={`fixed z-20 w-64 h-full bg-white text-black transition-transform transform   border-r-[5px]     border-r-[black]  ${
         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
       } sm:relative sm:translate-x-0 sm:w-64 sm:h-screen sm:block`}
     >
-      <div className="flex items-center justify-center h-20 bg-gray-700 text-2xl font-bold">
-        MyBrand
+      <div className="flex items-center justify-center h-20  text-2xl font-bold">
+        <Link to="/">
+          <img src="./images/logo.png" alt="Logo" className="h-24 mr-8 " />
+        </Link>
       </div>
 
       <ul className="p-4 space-y-2">
@@ -28,7 +31,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           <li key={index}>
             {route.subRoutes ? (
               <div
-                className="flex items-center justify-between cursor-pointer bg-gray-700 p-3 rounded-lg hover:bg-gray-600 transition duration-200 ease-in-out"
+                className="flex items-center justify-between cursor-pointer bg-[] p-3 rounded-lg bg-yellow-100 transition duration-200 ease-in-out   border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
                 onClick={() => toggleMenu(index)}
               >
                 <div className="flex items-center">
@@ -39,7 +42,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
             ) : (
               <Link
                 to={route.path}
-                className="flex items-center bg-gray-700 p-3 rounded-lg hover:bg-gray-600 transition duration-200 ease-in-out"
+                className="flex items-center  p-3 rounded-lg   bg-yellow-100 transition duration-200 ease-in-out   border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
                 onClick={closeSidebar} // Close sidebar for main menu without submenus
               >
                 {route.icon}
@@ -58,7 +61,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                 {route.subRoutes.map((subRoute, subIndex) => (
                   <li
                     key={subIndex}
-                    className="bg-gray-600 p-3 rounded-lg mt-1 hover:bg-gray-500 transition duration-200 ease-in-out"
+                    className=" p-3 rounded-lg mt-1   bg-yellow-100 transition duration-200 ease-in-out   border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
                   >
                     <Link
                       to={subRoute.path}

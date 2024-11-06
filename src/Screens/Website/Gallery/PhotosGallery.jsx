@@ -52,7 +52,7 @@ const PhotosGallery = () => {
     <div className="bg-yellow-50">
       {/* Hero Section */}
 
-      <div className="max-w-3xl mx-auto text-center mt-12">
+      <div className="max-w-3xl mx-auto text-center ">
         <h1 className="text-4xl font-bold text-gray-900 leading-tight  border-b-2 border-gray-500 pb-2">
           Award Function
         </h1>

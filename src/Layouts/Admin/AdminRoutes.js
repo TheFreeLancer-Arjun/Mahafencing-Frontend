@@ -1,79 +1,104 @@
 // src/route.js
+import { FaUserGraduate, FaSignOutAlt } from "react-icons/fa"; // Importing icons
+import { IoNewspaperOutline } from "react-icons/io5";
 import {
-  FaTachometerAlt,
-  FaUserGraduate,
-  FaFileInvoiceDollar,
-  FaCog,
-  FaSignOutAlt,
-} from "react-icons/fa"; // Importing icons
+  MdOutlineSystemSecurityUpdateGood,
+  MdOutlineViewCarousel,
+} from "react-icons/md";
+import { PiNotificationBold } from "react-icons/pi";
+import { TfiGallery } from "react-icons/tfi";
 
 const routes = [
   {
-    name: "Dashboard",
-    path: "/admin/dashboard",
-    icon: <FaTachometerAlt />, // Icon for Dashboard
-    component: "Dashboard", // You will load Dashboard component dynamically
-  },
-  {
-    name: "Students",
-    path: "/admin/students",
-    icon: <FaUserGraduate />, // Icon for Students
+    name: "Home",
+    path: "/admin/home-slider",
+    icon: <MdOutlineViewCarousel />, // Icon for Dashboard
     subRoutes: [
       {
-        name: "Admission",
-        path: "/admin/students/admission",
-        icon: <FaUserGraduate />, // Icon for Admission
+        name: "Carousel",
+        path: "/admin/home-slider",
+        icon: <IoNewspaperOutline />, // Icon for Admission
         component: "Admission",
       },
       {
-        name: "Attendance",
-        path: "/admin/students/attendance",
-        icon: <FaUserGraduate />, // Icon for Attendance
+        name: "HomePhoto",
+        path: "/admin/home-photo",
+        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        component: "Attendance",
+      },
+    ], // You will load Dashboard component dynamically
+  },
+
+
+
+  {
+    name: "Achievements",
+    path: "/admin/achievements/state-sports-award",
+    icon: <PiNotificationBold />, // Icon for Students
+    subRoutes: [
+      {
+        name: "State Sports Award",
+        path: "/admin/achievements/state-sports-award",
+        icon: <IoNewspaperOutline />, // Icon for Admission
+        component: "Admission",
+      },
+      {
+        name: "Dist Sports Award",
+        path: "/admin/achievements/dist-sports-award",
+        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        component: "Attendance",
+      },
+      {
+        name: "Medalist",
+        path: "/admin/achievements/medalist",
+        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        component: "Attendance",
+      },
+      {
+        name: "Research",
+        path: "/admin/achievements/research",
+        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        component: "Attendance",
+      },
+    ],
+  },
+
+
+
+  {
+    name: "Team",
+    path: "/admin/team/office-bearer",
+    icon: <PiNotificationBold />, // Icon for Students
+    subRoutes: [
+      {
+        name: "OfficeBearer",
+        path: "/admin/team/office-bearer",
+        icon: <IoNewspaperOutline />, // Icon for Admission
+        component: "Admission",
+      },
+      {
+        name: "NisCoaches",
+        path: "/admin/team/nis-coaches",
+        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        component: "Attendance",
+      },
+      {
+        name: "AnnualReport",
+        path: "/admin/team/annual-report",
+        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
         component: "Attendance",
       },
     ],
   },
   {
-    name: "Accounts",
-    path: "/admin/accounts",
-    icon: <FaFileInvoiceDollar />, // Icon for Accounts
-    subRoutes: [
-      {
-        name: "Fees",
-        path: "/admin/accounts/fees",
-        icon: <FaFileInvoiceDollar />, // Icon for Fees
-        component: "Fees",
-      },
-      {
-        name: "Due Report",
-        path: "/admin/accounts/due-report",
-        icon: <FaFileInvoiceDollar />, // Icon for Due Report
-        component: "DueReport",
-      },
-    ],
+    name: "Gallery",
+    path: "/admin/gallery",
+    icon: <TfiGallery />, // Icon for Accounts
   },
-  {
-    name: "Settings",
-    path: "/admin/settings",
-    icon: <FaCog />, // Icon for Settings
-    subRoutes: [
-      {
-        name: "Change Password",
-        path: "/admin/settings/change-password",
-        icon: <FaCog />, // Icon for Change Password
-        component: "ChangePassword",
-      },
-      {
-        name: "Update Details",
-        path: "/admin/settings/update-details",
-        icon: <FaCog />, // Icon for Update Details
-        component: "UpdateDetails",
-      },
-    ],
-  },
+ 
   {
     name: "Logout",
-    path: "/admin/logout",
+    path: "/login",
     icon: <FaSignOutAlt />, // Icon for Logout
     component: "Logout",
   },

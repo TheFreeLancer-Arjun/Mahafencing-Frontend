@@ -11,23 +11,30 @@ const AdminLayout = () => {
   };
 
   const userName = "User"; // Replace with dynamic user name if needed
-
+  const dashboardTitle =
+    "Shri Chhatrapati Shivaji College of Pharmacy's Dashboard"; // Replace with dynamic Path name if needed
+  
   return (
     <>
-      <div className="flex">
+      <div className="flex bg-yellow-50">
         {/* Sidebar */}
         <Sidebar
           isSidebarOpen={isSidebarOpen}
           toggleSidebar={setIsSidebarOpen}
+         
         />
 
         {/* Main content area */}
         <div className="flex-grow">
           {/* TopBar */}
-          <TopBar userName={userName} toggleSidebar={toggleSidebar} />
+          <TopBar
+            userName={userName}
+            dashboardTitle={dashboardTitle}
+            toggleSidebar={toggleSidebar}
+          />
 
           {/* Main page content */}
-          <div className="p-6">
+          <div className="bg-yellow-50">
             <Outlet />
           </div>
         </div>

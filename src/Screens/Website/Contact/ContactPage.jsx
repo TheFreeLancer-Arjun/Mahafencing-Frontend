@@ -20,7 +20,7 @@ export default function ContactPage() {
                   <input
                     type="text"
                     placeholder="Your Name"
-                    className="w-full pl-10 pr-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="w-full pl-10 pr-4 py-3 border border-b-[5px] border-r-[5px] border-[#06B4DB] rounded-t-xl "
                   />
                 </div>
 
@@ -29,7 +29,7 @@ export default function ContactPage() {
                   <input
                     type="email"
                     placeholder="Your Email"
-                    className="w-full pl-10 pr-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="w-full pl-10 pr-4 py-3 border border-b-[5px] border-r-[5px] border-[#06B4DB] rounded-t-xl"
                   />
                 </div>
 
@@ -38,7 +38,7 @@ export default function ContactPage() {
                   <input
                     type="tel"
                     placeholder="Your Phone"
-                    className="w-full pl-10 pr-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="w-full pl-10 pr-4 py-3 border border-b-[5px] border-r-[5px] border-[#06B4DB] rounded-t-xl"
                   />
                 </div>
 
@@ -46,7 +46,7 @@ export default function ContactPage() {
                   <textarea
                     rows="5"
                     placeholder="Your Message"
-                    className="w-full pl-4 pr-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className="w-full pl-4 pr-4 py-3 border border-b-[5px] border-r-[5px] border-[#06B4DB] rounded-t-xl"
                   />
                 </div>
 

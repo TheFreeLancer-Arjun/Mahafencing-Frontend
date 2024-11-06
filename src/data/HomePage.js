@@ -54,8 +54,8 @@ const ourInspirations = [
   {
     name: "Mr. RAJEEV MEHATA",
     image: "http://mahafencing.in/assets/img/rajiv.png",
-    designation: "Secretary Fencing Association Of India",
-    description: "",
+    designation: "Secretary ",
+    description: "(Shivchhatrapati Awardee)",
   },
   {
     name: "Mr. BASHIR AHMAD",
@@ -77,7 +77,7 @@ const ourOfficeBearers = [
     image: "http://mahafencing.in/assets/img/all/Shivaji Rajejadhav.jpeg",
     designation: "Working President",
     association: "Maharashtra Fencing Association",
-    additionalInfo: "",
+    additionalInfo: "(Shivchhatrapati Awardee)",
   },
   {
     name: "Dr. UDAY DONGARE",

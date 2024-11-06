@@ -35,9 +35,9 @@ const CarouselPage = () => {
           ))}
 
           {/* Centered text */}
-          <div className="absolute left-40 top-44 flex flex-col items-center justify-center text-white z-20 h-[4cm] w-[19cm] xs:hidden md:flex">
-            <div className="w-full pl-6">
-              <p className="text-xl flex justify-start font-bold">
+          <div className="absolute left-20 top-52 flex flex-col items-center justify-center text-white z-[100] h-[4cm] w-[19cm] xs:hidden md:flex">
+            <div className="w-full pl-4 mb-4">
+              <p className="text-2xl  text-gray-300 flex justify-start font-bold">
                 The fire is within all of us
               </p>
             </div>
@@ -45,26 +45,26 @@ const CarouselPage = () => {
               className="font-bold leading-[2.1cm] uppercase"
               style={{ fontWeight: "900", fontFamily: "Anton" }}
             >
-              <h2 className="text-6xl">We are the</h2>
+              <h2 className="text-7xl ">We are the</h2>
               <h2 className="text-8xl">best Associations</h2>
             </h2>
           </div>
 
           {/* Orange box at the bottom */}
-          <div className="absolute bottom-0 right-52 h-[7cm] w-[7cm] bg-[#06B4DB] text-white flex items-center justify-center rounded-l-2xl p-6 z-20 hidden md:flex">
-            <div className="text-black">
-              <p className="text-sm font-light uppercase">Countdown to</p>
+          <div className="absolute bottom-[-20px] right-28 h-[10cm] w-[9cm] bg-[#06B4DB] text-white items-center justify-center rounded-l-[30px] p-8 z-20 hidden md:flex">
+            <div className="text-black ">
+              <p className="text-lg font-bold uppercase ">Countdown to</p>
               <h2
-                className="text-lg font-bold uppercase"
+                className="text-3xl font-bold uppercase"
                 style={{
                   fontWeight: "900",
                   fontFamily: "DynaPuff",
                 }}
               >
-                International, Asian, and Olympic
+                International, Asian & Olympic
               </h2>
               <p
-                className="text-4xl font-bold my-2"
+                className="text-7xl font-bold my-2"
                 style={{
                   fontWeight: "900",
                   fontFamily: "DynaPuff",
@@ -73,7 +73,7 @@ const CarouselPage = () => {
                 15,000+
               </p>
               <p
-                className="text-md font-bold"
+                className="text-2xl font-bold"
                 style={{
                   fontWeight: "900",
                   fontFamily: "DynaPuff",
@@ -81,7 +81,7 @@ const CarouselPage = () => {
               >
                 Registered Players
               </p>
-              <p className="text-xs mt-1">At Mahafencing Associations</p>
+              <p className="text-lg mt-5">At Mahafencing Associations</p>
             </div>
           </div>
         </div>
@@ -167,11 +167,11 @@ const CarouselPage = () => {
           </h2>
         </div>
 
-        <div className="h-[3.5cm] w-[9cm] bg-[#06B4DB] text-white flex items-center justify-start rounded-l-2xl pt-4  pb-4 p-6 leading-[16px] ">
+        <div className="h-[3.5cm] w-[9.5cm] bg-[#06B4DB] text-white flex items-center justify-start rounded-l-2xl pt-4  pb-4 p-6 leading-[16px] ">
           <div className="text-black ">
-            <p className="text-[12px] font-light uppercase">Countdown to</p>
+            <p className="text-[14px] font-light uppercase">Countdown to</p>
             <h2
-              className="text-[15px] font-bold uppercase"
+              className="text-[17px] font-bold uppercase"
               style={{
                 fontWeight: "900",
                 fontFamily: "DynaPuff",
@@ -180,7 +180,7 @@ const CarouselPage = () => {
               International, Asian, and Olympic
             </h2>
             <p
-              className="text-3xl font-bold my-2"
+              className="text-4xl font-bold my-2"
               style={{
                 fontWeight: "900",
                 fontFamily: "DynaPuff",

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FiMenu, FiX } from "react-icons/fi"; // Import icons for hamburger and close
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function WebsiteNavbar({ routes }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [currentPageTitle, setCurrentPageTitle] = useState("");
-  const [navHeight, setNavHeight] = useState("h-[3cm]");
+  const [navHeight, setNavHeight] = useState("h-[4cm]");
   const [navColor, setNavColor] = useState("bg-black");
   const location = useLocation();
 
@@ -24,7 +24,7 @@ export default function WebsiteNavbar({ routes }) {
     const currentRoute = routes.find((route) => isActive(route.path));
     if (currentRoute && currentRoute.path !== "/") {
       setCurrentPageTitle(currentRoute.label);
-      setNavHeight("h-[8cm]");
+      setNavHeight("h-[10.4cm]");
 
       switch (currentRoute.path) {
         case "/about":
@@ -37,21 +37,28 @@ export default function WebsiteNavbar({ routes }) {
           setNavColor("bg-[#51B85D]");
           break;
         default:
-          setNavColor("bg-black");
+          setNavColor("bg-[#3A302D]");
       }
     } else {
       setCurrentPageTitle("");
-      setNavHeight("h-[3cm]");
+      setNavHeight("h-[4cm]");
       setNavColor("bg-black");
     }
   }, [location.pathname, routes]);
 
   return (
     <nav
-      className={`${navColor} text-white text-2xl ${navHeight} transition-all duration-500`}
+      className={`${navColor} text-white text-2xl ${navHeight} transition-all duration-500  `}
     >
       <div className="w-screen mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex pt-10 justify-between items-center">
+        <div className="flex justify-between items-center pt-10">
+          {/* Logo Section */}
+          <div className="flex items-center ">
+            <Link to="/">
+              <img src="./images/logo.png" alt="Logo" className="lg:h-24 mr-8 xs:h-16  " />
+            </Link>
+          </div>
+
           {/* Hamburger Icon for Mobile */}
           <button
             onClick={toggleMenu}
@@ -61,7 +68,7 @@ export default function WebsiteNavbar({ routes }) {
           </button>
 
           {/* Centered Menu for Larger Screens */}
-          <div className="hidden md:flex items-baseline space-x-8 justify-center w-full">
+          <div className="hidden md:flex items-baseline space-x-10 justify-center w-full mb-8">
             {routes.map((route, index) => (
               <div key={index} className="relative group">
                 {route.path ? (
@@ -70,26 +77,35 @@ export default function WebsiteNavbar({ routes }) {
                     className={`${
                       isActive(route.path) ? "text-black" : "text-white"
                     } ${
-                      index < 1 ? "text-lg" : "text-sm"
-                    } uppercase transition-all duration-300 relative font-bold`}
+                      ["ABOUT", "GALLERY", "CONTACT"].includes(route.label)
+                        ? "text-2xl"
+                        : "text-sm text-center"
+                    } transition-all duration-300 relative font-bold`}
+
+                    style={{
+                      fontWeight: "900",
+                      fontFamily: "DynaPuff",
+                    }}
                   >
                     {route.label}
                     <span className="absolute left-0 bottom-0 h-[3px] w-full bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 transform origin-left"></span>
                   </Link>
                 ) : (
-                  <div className="cursor-pointer text-white px-3 py-2 rounded-md text-sm font-medium">
+                  <div className="cursor-pointer text-white px-3 py-2 rounded-md text-sm font-medium text-sm">
                     {route.label}
                     {route.submenu && (
-                      <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 hidden group-hover:block z-50">
+                      <div className="absolute left-0 mt-2 w-64 bg-white rounded-md shadow-lg py-2 hidden group-hover:block z-50">
                         {route.submenu.map((sub, subIndex) => (
                           <Link
                             key={subIndex}
                             to={sub.path}
-                            className={`${
+                            className={`block px-4 py-2 font-bold text-lg  ${
+                              subIndex !== 0 ? "mt-2" : ""
+                            } ${
                               isActive(sub.path)
-                                ? "bg-gray-400 text-black"
-                                : "hover:text-white hover:bg-black text-black"
-                            } block px-4 py-2 font-bold text-lg`}
+                                ? "bg-gray-200 text-black"
+                                : "hover:text-black hover:bg-gray-100 text-black"
+                            }`}
                           >
                             {sub.label}
                           </Link>
@@ -101,95 +117,83 @@ export default function WebsiteNavbar({ routes }) {
               </div>
             ))}
           </div>
+        </div>
+      </div>
 
-          {/* Slide-in Mobile Menu */}
-          <div
-            className={`fixed inset-0 bg-black bg-opacity-75 z-50 transform ${
-              isOpen ? "translate-x-0" : "-translate-x-full"
-            } transition-transform duration-300 md:hidden`}
+      {/* Slide-in Mobile Menu */}
+      <div
+        className={`fixed inset-0 bg-[#3A302D] bg-opacity-75 z-50 transform ${
+          isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 md:hidden`}
+      >
+        <div className="p-6 w-64 bg-[#3A302D] h-full">
+          <button
+            onClick={toggleMenu}
+            className="text-white focus:outline-none mb-6"
           >
-            <div className="p-6 w-64 bg-black h-full">
-              <button
-                onClick={toggleMenu}
-                className="text-white focus:outline-none mb-6"
-              >
-                <svg
-                  className="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+            <FiX size={24} />
+          </button>
+          {routes.map((route, index) => (
+            <div key={index} className="mb-4">
+              {route.path ? (
+                <Link
+                  to={route.path}
+                  onClick={() => setIsOpen(false)} // Close menu on link click
+                  className={`${
+                    isActive(route.path)
+                      ? "bg-yellow-900 text-green-300"
+                      : "text-white hover:bg-yellow-700"
+                  } block px-3 py-2 rounded-md text-base font-medium`}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-              {routes.map((route, index) => (
-                <div key={index} className="mb-4">
-                  {route.path ? (
-                    <Link
-                      to={route.path}
-                      onClick={() => setIsOpen(false)} // Close menu on link click
-                      className={`${
-                        isActive(route.path)
-                          ? "bg-gray-900 text-yellow-400"
-                          : "text-white hover:bg-gray-700"
-                      } block px-3 py-2 rounded-md text-base font-medium`}
-                    >
-                      {route.label}
-                    </Link>
-                  ) : (
-                    <div>
-                      <button
-                        onClick={() => toggleSubmenu(index)}
-                        className="w-full text-left text-white hover:bg-gray-700 px-3 py-2 rounded-md text-base font-medium"
-                      >
-                        {route.label}
-                      </button>
-                      {/* Collapsible Submenu */}
-                      {route.submenu && activeSubmenu === index && (
-                        <div className="ml-4">
-                          {route.submenu.map((sub, subIndex) => (
-                            <Link
-                              key={subIndex}
-                              to={sub.path}
-                              onClick={() => setIsOpen(false)} // Close menu on link click
-                              className={`${
-                                isActive(sub.path)
-                                  ? "bg-gray-900 text-yellow-400"
-                                  : "text-gray-300 hover:bg-gray-700"
-                              } block px-3 py-2 rounded-md text-sm`}
-                            >
-                              {sub.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
+                  {route.label}
+                </Link>
+              ) : (
+                <div>
+                  <button
+                    onClick={() => toggleSubmenu(index)}
+                    className="w-full text-left text-white hover:bg-yellow-700 px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    {route.label}
+                  </button>
+                  {route.submenu && activeSubmenu === index && (
+                    <div className="ml-4">
+                      {route.submenu.map((sub, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          to={sub.path}
+                          onClick={() => setIsOpen(false)} // Close menu on link click
+                          className={`block px-3 py-2 rounded-md text-sm ${
+                            subIndex !== 0 ? "mt-2" : ""
+                          } ${
+                            isActive(sub.path)
+                              ? "bg-yellow-900 text-green-300"
+                              : "text-yellow-300 hover:bg-yellow-700"
+                          }`}
+                        >
+                          {sub.label}
+                        </Link>
+                      ))}
                     </div>
                   )}
                 </div>
-              ))}
+              )}
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
       {/* Breadcrumb and Page Title */}
       {currentPageTitle && (
         <div className="w-screen h-[7cm] justify-start flex">
-          <div className="w-[50%] h-[7cm] xs:pl-16 ">
-            <div className="text-sm text-black mb-2 lg:ml-60 lg:mt-14 xs:mt-20 ">
+          <div className="w-[50%] h-[7cm] xs:pl-9">
+            <div className="text-sm text-black mb-8 lg:ml-14 lg:mt-14 xs:mt-20">
               <Link to="/" className="underline">
                 Home
               </Link>{" "}
               {">"} {currentPageTitle}
             </div>
             <div
-              className="text-7xl font-extrabold relative lg:ml-60 text-black"
+              className="text-8xl xs:text-7xl  ml-2 font-extrabold relative lg:ml-12 text-black"
               style={{ fontFamily: "DynaPuff" }}
             >
               {currentPageTitle}
@@ -198,7 +202,7 @@ export default function WebsiteNavbar({ routes }) {
           <div className="w-[50%] flex items-center justify-center">
             <img
               src="images/aaa.png"
-              className="lg:w-[15cm] lg:h-[5.5cm] xs:h-[5cm] xs:w-[10cm]  opacity-20 "
+              className="lg:w-[15cm] lg:h-[5.5cm] xs:h-[5cm] xs:w-[10cm] opacity-20"
               alt=""
             />
           </div>

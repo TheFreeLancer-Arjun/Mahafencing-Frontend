@@ -19,7 +19,7 @@ export default function GalleryPage() {
 
   return (
     <div className="bg-yellow-50 ">
-      <div class="max-w-3xl mx-auto text-center mt-12">
+      <div class="max-w-3xl mx-auto text-center ">
         <h1 class="text-4xl font-bold text-gray-900 leading-tight  border-b-2 border-gray-500 pb-2">
           Our Gallery
         </h1>

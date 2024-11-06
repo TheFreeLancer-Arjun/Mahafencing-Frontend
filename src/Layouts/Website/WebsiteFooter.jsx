@@ -11,10 +11,9 @@ const Footer = () => {
   return (
     <>
       <footer
-        className="bg-black text-white py-8 bg-cover bg-center w-full p-6 lg:p-10"
+        className="bg-black text-white py-8 bg-cover bg-center w-full p-6 lg:p-10  lg:h-[16cm] flex flex-col  justify-end"
         style={{
-          backgroundImage:
-            "url('https://thedesigncart.com/cdn/shop/products/43C_7dee0694-e418-4ebe-8eb9-37541b937f10_1080x.jpg?v=1685681761')",
+          backgroundImage: "url('')",
         }}
       >
         <div className="container mx-auto px-4 border-b-[10px] border-r-[10px] border-t-[10px] border-gray-500 rounded-2xl p-6 lg:p-10">
@@ -125,27 +124,45 @@ const Footer = () => {
         </div>
 
         {/* Footer Bottom */}
-        <div className="mt-8 text-center text-xs md:text-sm lg:text-start">
-          <div className="flex justify-center lg:justify-start space-x-2 mt-1">
-            <a
-              href="https://mahafencing.in/home/privacy_policy"
-              className="underline hover:text-gray-400"
-            >
-              Privacy Policy & Refund Policy
+        <div className="mt-8 text-center text-xs md:text-sm lg:text-start mb-[2cm] w-screen flex ">
+          <div className="w-[50%] ">
+            <div className="flex justify-center lg:justify-start space-x-2 mt-1  mb-2">
+              <a
+                href="https://mahafencing.in/home/privacy_policy"
+                className="underline hover:text-gray-400"
+              >
+                Privacy Policy & Refund Policy
+              </a>
+              <span>|</span>
+              <a
+                href="https://mahafencing.in/home/terms_conditions"
+                className="underline hover:text-gray-400"
+              >
+                Terms & Conditions
+              </a>
+            </div>
+
+            <a href="https://www.sublimetechnologies.in/">
+              {" "}
+              <p>&copy; Developed by Sublime technologies </p>
             </a>
-            <span>|</span>
-            <a
-              href="https://mahafencing.in/home/terms_conditions"
-              className="underline hover:text-gray-400"
-            >
-              Terms & Conditions
-            </a>
+
+
+            <Link to="/admin">
+
+            admin
+            </Link>
           </div>
 
-          <a href="https://www.sublimetechnologies.in/">
-            {" "}
-            <p>&copy; Developed by Sublime technologies </p>
-          </a>
+          <div className="w-[50%]">
+            <div className="w-[90%] flex justify-end">
+              <img
+                src="https://www.sublimetechnologies.in/sublime_assets/images/logo_black.png"
+                alt="Logo"
+                className="h-[1cm] mr-8"
+              />
+            </div>
+          </div>
         </div>
       </footer>
     </>

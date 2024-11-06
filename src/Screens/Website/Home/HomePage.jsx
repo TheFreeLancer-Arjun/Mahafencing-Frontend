@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import CarouselPage from "./CarouselPage";
 import HomePageFeatures from "./HomePageFeatures";
+import PageFeatures from "./PageFeatures";
+
 import {
   notices,
   newsScroll,
@@ -116,14 +118,14 @@ export default function HomePage() {
         </div>
 
         {/* Content Section */}
-        <div className="w-full px-4 lg:px-32 py-20 bg-yellow-50">
+        <div className="w-full px-4 lg:px-24 py-20 bg-yellow-50 ">
           <h1
             style={{ fontWeight: "900", fontFamily: "DynaPuff" }}
-            className="text-2xl lg:text-5xl text-start mt-4 mb-4 font-bold uppercase"
+            className="text-2xl lg:text-8xl text-start mt-4 mb-4 font-bold uppercase"
           >
             Mahafencing Association
           </h1>
-          <div className="p-2 border-t-[15px] border-r-[15px] rounded-2xl border-[#06B4DB] flex flex-col lg:flex-row">
+          <div className="p-2 border-t-[15px] border-r-[15px]  border-[#06B4DB] flex flex-col lg:flex-row">
             <div className="rounded-lg leading-relaxed lg:w-[70%] w-full">
               <div className="anime w-full p-5">
                 <div className="anime text-black mt-3 lg:mt-7 text-sm lg:text-xl">
@@ -141,39 +143,53 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* News Section */}
-            <div className="bg-black lg:w-[30%] w-full rounded-lg mt-5 lg:mt-0">
+
+
+            <div className="bg-black lg:w-[30%] lg:h-[9cm] rounded-lg mt-5 xs:w-[100%] overflow-hidden shadow-lg lg:mt-16 ">
               <div className="flex flex-col items-center">
-                <div className="w-[60%] h-[0.95cm] text-white font-bold bg-black flex justify-center items-center rounded-full mt-2 lg:mb-1">
-                  NEWS AND UPDATE
+                <div className="w-[60%] h-[2.5rem] text-white font-bold  flex justify-center items-center rounded-full mt-2 mb-2">
+                  NEWS AND UPDATES
                 </div>
                 <div
                   onMouseEnter={handleMarqueeEnter}
                   onMouseLeave={handleMarqueeLeave}
-                  className="border pl-3 border-gray-950 bg-yellow-50 w-full lg:w-auto overflow-hidden flex flex-nowrap flex-col"
+                  
+                  className="border pl-3 border-gray-800 bg-yellow-50 w-full lg:w-auto overflow-hidden flex flex-col rounded-lg shadow-inner"
                 >
-                  <marquee
-                    ref={marqueeRef}
-                    direction="up"
-                    className="lg:h-[10cm] xs:h-[6cm] duration-700 transition-all flex-shrink-0 overflow-y-auto"
-                  >
-                    {notices.map((item, index) => (
-                      <div key={index} className="shadow-md p-2">
-                        <p>{item.text}</p>
-                        <span className="inline ml-5">{item.date}</span>
-                        <a
-                          href={item.link}
-                          className="ml-10 bg-black text-white px-5 rounded-full"
+                  <div className="h-[7cm] overflow-hidden">
+                    <marquee
+                      id="myMarquee"
+                      ref={marqueeRef}
+                      behavior="scroll"
+                      direction="up"
+                      className="duration-700 transition-all flex-shrink-0 overflow-y-auto"
+                    >
+                      {notices.map((item, index) => (
+                        <div
+                          key={index}
+                          className="shadow-md p-4 border-b border-gray-200 hover:bg-gray-100 transition-colors duration-300"
                         >
-                          Download
-                        </a>
-                      </div>
-                    ))}
-                  </marquee>
+                          <p className="text-gray-800 font-medium">
+                            {item.text}
+                          </p>
+                          <span className="inline ml-2 text-sm text-gray-500">
+                            {item.date}
+                          </span>
+                          <a
+                            href={item.link}
+                            className="inline-block ml-4 bg-[#E23A53] text-white px-3 py-1 rounded-full text-xs hover:bg-gray-700 transition duration-300"
+                          >
+                            Download
+                          </a>
+                        </div>
+                      ))}
+                    </marquee>
+                  </div>
                 </div>
-                <div className="bg-[#1f2937] lg:w-[25%] h-[0.2cm] mt-2"></div>
+             
               </div>
             </div>
+
           </div>
         </div>
 
@@ -181,12 +197,12 @@ export default function HomePage() {
         <HomePageFeatures
           data={ourInspirations}
           title="Our Inspirations"
-          columns={2}
+          
         />
-        <HomePageFeatures
-          data={ourOfficeBearers}
-          title="Our Office Bearers"
-          columns={2}
+        <PageFeatures
+          // data={ourOfficeBearers}
+          // title="Our Office Bearers"
+  
         />
 
         <div className="pl-5 pr-5 lg:pl-40 lg:pr-56">
@@ -199,7 +215,7 @@ export default function HomePage() {
                     <div key={item.id} className="w-full lg:w-[50%]">
                       <div className="w-full p-3">
                         <img
-                          className="w-full h-[7cm] hover:border-[6px] border-[#06B4DB] rounded-lg"
+                          className="w-full h-[9cm] hover:border-[6px] border-[#06B4DB] rounded-lg"
                           src={item.image}
                           alt=""
                         />
@@ -220,7 +236,7 @@ export default function HomePage() {
                       return (
                         <div key={item.id} className="w-full lg:w-[45%]">
                           <img
-                            className="w-full h-[4.5cm] hover:border-[6px] border-[#06B4DB] rounded-lg"
+                            className="w-full h-[5cm] hover:border-[6px] border-[#06B4DB] rounded-lg"
                             src={item.image}
                             alt=""
                           />

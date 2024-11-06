@@ -58,7 +58,7 @@
 }
 @font-face {
   font-family: 'DynaPuff';
-  src: url('/home/thefreelacner/Music/Lilita_One/LilitaOne-Regular.ttf') format('truetype');
+  src: url(Fonts/LilitaOne-Regular.ttf)  format('truetype');
   font-weight: 100 900; /* Specify the range of weights */
   font-style: normal; 
 }
@@ -67,7 +67,7 @@
 
 @font-face {
   font-family: 'Anton';
-  src: url('/home/thefreelacner/Music/Anton/Anton-Regular.ttf') format('truetype');
+  src: url(Fonts/Anton-Regular.ttf)format('truetype');
   font-weight: 100 900; /* Specify the range of weights */
   font-style: normal; 
 }

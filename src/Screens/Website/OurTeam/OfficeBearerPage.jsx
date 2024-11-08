@@ -17,7 +17,7 @@ export default function OfficeBearerPage() {
           src={photo}
           alt={name}
         />
-        <div className="text-center mt-2 w-full pt-4 bg-[#F6F2DF] text-black h-28 md:h-32 border border-[#06B4DB] border-t-[10px] flex flex-col p-3 md:p-5">
+        <div className="text-center mt-2 w-full pt-4 bg-[#F6F2DF] text-black h-28 md:h-40 border border-[#06B4DB] border-t-[10px] flex flex-col p-3 md:p-5">
           <span className="text-white text-md md:text-xl font-semibold px-1 py-1 md:py-2 bg-white border border-b-[3px] border-r-[3px] border-green-400 rounded-t-xl">
             {name}
           </span>

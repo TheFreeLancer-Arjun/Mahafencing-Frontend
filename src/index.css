@@ -79,3 +79,11 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.bg-image-text {
+  background-image: url("https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg"); /* Replace with your image URL */
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}

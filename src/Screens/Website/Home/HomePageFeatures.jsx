@@ -12,11 +12,11 @@ const HomePageFeatures = ({ data, title, columns = 2 }) => {
       <div
         className={`grid grid-cols-1 sm:grid-cols-2 ${
           columns === 2 ? "lg:grid-cols-2" : "lg:grid-cols-3"
-        } lg:gap-28 xs:gap-5 mt-5 xs:w-[80%] lg:w-[50%] `}
+        } lg:gap-28 xs:gap-5 mt-5 xs:w-[80%] lg:w-[50%]  `}
       >
         {data.map((card, index) => (
           <Link to={card.pageLink || "#"} key={index} className="w-full">
-            <div className="rounded-2xl shadow-lg overflow-hidden p-0 bg-white border-[2px] border-black">
+            <div className="rounded-2xl shadow-lg overflow-hidden p-0 bg-white border-[2px] border-black  hover:border-[6px] hover:border-[#51B85D] hover:rounded-lg">
               <img
                 className="w-full h-auto object-cover object-center border border-white"
                 src={card.image}

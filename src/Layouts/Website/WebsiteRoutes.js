@@ -1,7 +1,7 @@
 import { FaBuilding, FaHome, FaInfoCircle, FaPhone } from "react-icons/fa";
 
 const WebsiteRoutes = [
-  // { path: "/", label: "HOME", icon: <FaHome /> },
+  { path: "/", label: "HOME", icon: <FaHome /> },
   { path: "/about", label: "ABOUT", icon: <FaInfoCircle /> },
 
   { path: "/gallery", label: "GALLERY", icon: <FaPhone /> },

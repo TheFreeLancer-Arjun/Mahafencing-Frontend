@@ -71,7 +71,7 @@ const PhotosGallery = () => {
               {images.map((image, index) => (
                 <div key={index}>
                   <div
-                    className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
+                    className="group relative overflow-hidden  shadow-lg cursor-pointer hover:border-[6px] border-[#51B85D] rounded-lg"
                     onClick={() => openModal(index)}
                   >
                     <img

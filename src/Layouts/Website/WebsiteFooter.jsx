@@ -126,7 +126,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="mt-8 text-center text-xs md:text-sm lg:text-start mb-[2cm] w-screen flex ">
           <div className="w-[50%] ">
-            <div className="flex justify-center lg:justify-start space-x-2 mt-1  mb-2">
+            <div className="flex justify-center lg:justify-start space-x-2 mt-1  mb-2 ">
               <a
                 href="https://mahafencing.in/home/privacy_policy"
                 className="underline hover:text-gray-400"

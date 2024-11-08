@@ -7,23 +7,32 @@ import {
 } from "react-icons/md";
 import { PiNotificationBold } from "react-icons/pi";
 import { TfiGallery } from "react-icons/tfi";
-
+import { GrAchievement } from "react-icons/gr";
+import { FaAward } from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
+import { TbCarouselHorizontal } from "react-icons/tb";
+import { MdAddAPhoto } from "react-icons/md";
+import { GiArchiveResearch } from "react-icons/gi";
+import { RiTeamLine } from "react-icons/ri";
+import { HiOutlineBuildingOffice2 } from "react-icons/hi2";
+import { HiMiniServerStack } from "react-icons/hi2";
+import { FaRegFilePdf } from "react-icons/fa6";
 const routes = [
   {
     name: "Home",
     path: "/admin/home-slider",
-    icon: <MdOutlineViewCarousel />, // Icon for Dashboard
+    icon: <FaHome />, // Icon for Dashboard
     subRoutes: [
       {
         name: "Carousel",
         path: "/admin/home-slider",
-        icon: <IoNewspaperOutline />, // Icon for Admission
+        icon: <TbCarouselHorizontal />, // Icon for Admission
         component: "Admission",
       },
       {
         name: "HomePhoto",
         path: "/admin/home-photo",
-        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        icon: <MdAddAPhoto />, // Icon for Attendance
         component: "Attendance",
       },
     ], // You will load Dashboard component dynamically
@@ -34,30 +43,30 @@ const routes = [
   {
     name: "Achievements",
     path: "/admin/achievements/state-sports-award",
-    icon: <PiNotificationBold />, // Icon for Students
+    icon: <GrAchievement />, // Icon for Students
     subRoutes: [
       {
-        name: "State Sports Award",
+        name: "State  Award",
         path: "/admin/achievements/state-sports-award",
-        icon: <IoNewspaperOutline />, // Icon for Admission
+        icon: <FaAward />, // Icon for Admission
         component: "Admission",
       },
       {
-        name: "Dist Sports Award",
+        name: "Dist  Award",
         path: "/admin/achievements/dist-sports-award",
-        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        icon: <FaAward />, // Icon for Attendance
         component: "Attendance",
       },
       {
         name: "Medalist",
         path: "/admin/achievements/medalist",
-        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        icon: <FaRegFilePdf />, // Icon for Attendance
         component: "Attendance",
       },
       {
         name: "Research",
         path: "/admin/achievements/research",
-        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        icon: <GiArchiveResearch />, // Icon for Attendance
         component: "Attendance",
       },
     ],
@@ -68,24 +77,24 @@ const routes = [
   {
     name: "Team",
     path: "/admin/team/office-bearer",
-    icon: <PiNotificationBold />, // Icon for Students
+    icon: <RiTeamLine />, // Icon for Students
     subRoutes: [
       {
         name: "OfficeBearer",
         path: "/admin/team/office-bearer",
-        icon: <IoNewspaperOutline />, // Icon for Admission
+        icon: <HiOutlineBuildingOffice2 />, // Icon for Admission
         component: "Admission",
       },
       {
         name: "NisCoaches",
         path: "/admin/team/nis-coaches",
-        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        icon: <HiMiniServerStack />, // Icon for Attendance
         component: "Attendance",
       },
       {
         name: "AnnualReport",
         path: "/admin/team/annual-report",
-        icon: <MdOutlineSystemSecurityUpdateGood />, // Icon for Attendance
+        icon: <FaRegFilePdf />, // Icon for Attendance
         component: "Attendance",
       },
     ],

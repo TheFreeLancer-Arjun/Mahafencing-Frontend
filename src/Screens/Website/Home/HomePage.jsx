@@ -34,6 +34,15 @@ export default function HomePage() {
       size: "large",
     },
     {
+      id: 1,
+      image: "http://mahafencing.in/assets/inaugration/b%20(2).jpeg",
+      title:
+        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe, quis. Lorem ipsum dolor sit amet consectetur.",
+      size: "large",
+    },
+    
+   
+    {
       id: 2,
       image: "http://mahafencing.in/assets/inaugration/b%20(1).jpeg",
       title:
@@ -121,7 +130,7 @@ export default function HomePage() {
         <div className="w-full px-4 lg:px-24 py-20 bg-yellow-50 ">
           <h1
             style={{ fontWeight: "900", fontFamily: "DynaPuff" }}
-            className="text-2xl lg:text-8xl text-start mt-4 mb-4 font-bold uppercase"
+            className="text-2xl lg:text-8xl text-start mt-4 mb-4 font-bold uppercase "
           >
             Mahafencing Association
           </h1>
@@ -200,19 +209,19 @@ export default function HomePage() {
           
         />
         <PageFeatures
-          // data={ourOfficeBearers}
-          // title="Our Office Bearers"
+         
   
         />
 
         <div className="pl-5 pr-5 lg:pl-40 lg:pr-56">
           <div className="p-2 border-t-[15px] border-r-[15px] rounded-2xl border-[#06B4DB] flex flex-col lg:flex-row">
-            <div className="rounded-lg leading-relaxed w-full flex flex-col lg:flex-row">
-              {/* Left Side (Full width on mobile, half on larger screens) */}
-              {data.map((item) => {
+            <div className="rounded-lg leading-relaxed w-full lg:flex ">
+<div className="w-full lg:w-[50%] ">
+                {/* Left Side (Full width on mobile, half on larger screens) */}
+                {data.map((item) => {
                 if (item.size === "large") {
                   return (
-                    <div key={item.id} className="w-full lg:w-[50%]">
+                    <div key={item.id} className=" ">
                       <div className="w-full p-3">
                         <img
                           className="w-full h-[9cm] hover:border-[6px] border-[#06B4DB] rounded-lg"
@@ -227,41 +236,58 @@ export default function HomePage() {
                   );
                 }
               })}
+</div>
 
-              {/* Right Side (Full width on mobile, half on larger screens) */}
-              <div className="w-full lg:w-[50%]  p-5">
-                <div className="w-full flex flex-wrap gap-5">
-                  {data.map((item) => {
-                    if (item.size === "small") {
-                      return (
-                        <div key={item.id} className="w-full lg:w-[45%]">
-                          <img
-                            className="w-full h-[5cm] hover:border-[6px] border-[#06B4DB] rounded-lg"
-                            src={item.image}
-                            alt=""
-                          />
-                          <h1 className="text-sm font-bold mt-5 line-clamp-2">
-                            {item.title}
-                          </h1>
-                        </div>
-                      );
-                    }
-                  })}
-                </div>
-              </div>
+<div className="w-full lg:w-[45%] flex gap-5">
+  {/* Right Side (Full width on mobile, half on larger screens) */}
+  <div className="w-full p-5">
+    <div className="w-full grid grid-cols-2 gap-5"> {/* Use grid with 2 columns */}
+      {data.map((item) => {
+        if (item.size === "small") {
+          return (
+            <div key={item.id} className="w-full">
+              <img
+                className="w-full h-[5cm] hover:border-[6px] border-[#06B4DB] rounded-lg"
+                src={item.image}
+                alt=""
+              />
+              <h1 className="text-sm font-bold mt-5 line-clamp-2">
+                {item.title}
+              </h1>
+            </div>
+          );
+        }
+      })}
+    </div>
+  </div>
+</div>
+
+
+
             </div>
           </div>
         </div>
 
+
+
+
+
+
+
+
+
+
+
+
         <section
-          className="lg:h-[50vh] w-screen bg-black text-white py-16 bg-cover bg-center flex justify-center items-center "
+          className="lg:h-[40vh] w-screen bg-black text-white py-16 bg-cover bg-center flex justify-center items-center "
           style={{
             backgroundImage:
               "url('https://cdn.sanity.io/images/3do82whm/next/b88e6888748d4209f8c6746ac5507c673b2a01e9-1440x800.svg?w=3840&q=75&fit=clip&auto=format')",
           }}
         >
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 lg:mb-10">
+            <h2 className="text-4xl md:text-5xl lg:text-8xl font-bold mb-6 lg:mb-10">
               Contact Us
             </h2>
 

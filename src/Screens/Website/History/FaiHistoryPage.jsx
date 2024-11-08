@@ -117,7 +117,7 @@ const FaiHistoryPage = () => {
 
                   <div className="flex w-[30cm] gap-10  justify-between">
                     <div className="w-[50%] h-[8cm] ">
-                      <img src="http://mahafencing.in/assets/img/olympe.png" />
+                      <img src="http://mahafencing.in/assets/img/olympe.png"  className=" hover:border-[6px] hover:border-[#51B85D] hover:rounded-lg"/>
                     </div>
                     <p className="w-[50%] h-[8cm] mb-4 font-bold">
                       Indian Fencing Association was founded in 1974, recognized

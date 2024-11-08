@@ -8,7 +8,7 @@ const StateSportsAward = () => {
       id: 1,
       image: "https://www.shivajipharma.com/assets/img/goal.jpg",
       title: "Fresher Party",
-      size: "large", // default size
+      size: "large",
       name: "Default Name",
       location: "Default Location",
     },
@@ -16,7 +16,7 @@ const StateSportsAward = () => {
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [image, setImage] = useState(null);
-  const [size, setSize] = useState("large"); // state for size
+  const [size, setSize] = useState("large");
   const [errors, setErrors] = useState({});
   const [isOpen, setIsOpen] = useState(false);
 
@@ -51,14 +51,14 @@ const StateSportsAward = () => {
       image: image ? URL.createObjectURL(image) : "",
       name,
       location,
-      size, // include selected size
+      size,
     };
 
     setRows([...rows, newRow]);
     setImage(null);
     setName("");
     setLocation("");
-    setSize("large"); // reset to default size
+    setSize("large");
     closeModal();
   };
 
@@ -69,34 +69,33 @@ const StateSportsAward = () => {
 
   return (
     <>
-      <div className="flex px-7 justify-between items-center flex-wrap w-full">
-        <h1 className="font-extrabold py-4 text-center text-4xl text-gray-800 flex items-center justify-center uppercase">
-          Shiv Chhatrapati state Sports Award
-        
+      <div className="flex px-5 sm:px-7 justify-between items-center flex-wrap w-full">
+        <h1 className="font-extrabold py-4 text-center text-2xl sm:text-4xl text-black flex items-center justify-center uppercase">
+          Shiv Chhatrapati State Sports Award
         </h1>
         <Link>
           <button
             onClick={openModal}
             type="button"
-            className="mt-4 px-4 py-2 bg-green-400 text-black rounded-md hover: focus:outline-none focus:ring-2 focus:ring-gray-500 border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
+            className="mt-4 px-4 py-2 bg-green-400 text-black rounded-md hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-gray-500 border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
           >
-            Add Album
+            Add State Award
           </button>
         </Link>
       </div>
 
-      <div className="container mx-auto p-6">
-        <div className="bg-white shadow-lg rounded-lg p-4">
+      <div className="container mx-auto p-4 sm:p-6">
+        <div className="bg-white shadow-lg rounded-lg p-4 sm:w-[100%] lg:w-[80vw]">
           <div className="overflow-x-auto">
             <table className="min-w-full table-auto">
               <thead className="bg-black text-white">
                 <tr>
-                  <th className="px-4 py-2 text-left">Sr. No</th>
-                  <th className="px-4 py-2 text-left">Images</th>
-                  <th className="px-4 py-2 text-left">Name</th>
-                  <th className="px-4 py-2 text-left">Location</th>
-                  <th className="px-4 py-2 text-left">Size</th>
-                  <th className="px-4 py-2 text-left">Action</th>
+                  <th className="px-2 sm:px-4 py-2 text-left">Sr. No</th>
+                  <th className="px-2 sm:px-4 py-2 text-left">Images</th>
+                  <th className="px-2 sm:px-4 py-2 text-left">Name</th>
+                  <th className="px-2 sm:px-4 py-2 text-left">Location</th>
+                  <th className="px-2 sm:px-4 py-2 text-left">Size</th>
+                  <th className="px-2 sm:px-4 py-2 text-left">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -105,24 +104,24 @@ const StateSportsAward = () => {
                     key={row.id}
                     className="bg-gray-50 hover:bg-gray-100 transition"
                   >
-                    <td className="border px-4 py-2">{index + 1}</td>
-                    <td className="border px-4 py-2">
+                    <td className="border px-2 sm:px-4 py-2">{index + 1}</td>
+                    <td className="border px-2 sm:px-4 py-2">
                       <img
                         src={row.image}
                         alt="Uploaded"
-                        className="h-20 w-24 object-cover rounded-md shadow"
+                        className="h-16 w-20 sm:h-20 sm:w-24 object-cover rounded-md shadow"
                       />
                     </td>
-                    <td className="border px-4 py-2">{row.name}</td>
-                    <td className="border px-4 py-2">{row.location}</td>
-                    <td className="border px-4 py-2">{row.size}</td>
-                    <td className="border px-4 py-2 text-center">
+                    <td className="border px-2 sm:px-4 py-2">{row.name}</td>
+                    <td className="border px-2 sm:px-4 py-2">{row.location}</td>
+                    <td className="border px-2 sm:px-4 py-2">{row.size}</td>
+                    <td className="border px-2 sm:px-4 py-2 text-center">
                       <button
                         type="button"
                         onClick={() => deleteRow(row.id)}
-                        className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500   border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
+                        className="px-2 py-1 sm:px-4 sm:py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
                       >
-                        Delete Album
+                        Delete State Award
                       </button>
                     </td>
                   </tr>
@@ -134,11 +133,11 @@ const StateSportsAward = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-gray-200 p-8 rounded-lg shadow-lg w-1/3">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+          <div className="bg-yellow-50 p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-lg mx-4">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl text-center font-semibold text-gray-700 ">
-                Add Album
+              <h2 className="text-lg sm:text-xl text-center font-semibold text-gray-700">
+                Add State Award
               </h2>
               <button
                 className="text-gray-500 font-bold hover:text-gray-700"
@@ -212,9 +211,9 @@ const StateSportsAward = () => {
 
               <button
                 type="submit"
-                className="px-4 py-2 bg-green-400 text-black rounded-md hover: w-full  border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
+                className="px-4 py-2 bg-green-400 text-black rounded-md hover:bg-green-500 w-full border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
               >
-                Add
+                Save State Award
               </button>
             </form>
           </div>

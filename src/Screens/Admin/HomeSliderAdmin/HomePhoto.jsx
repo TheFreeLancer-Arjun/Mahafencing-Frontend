@@ -67,9 +67,7 @@ const HomePhoto = () => {
       <div className="flex px-7 justify-between items-center flex-wrap w-full">
         <h1 className="font-extrabold py-4 text-center text-4xl text-black flex items-center justify-center">
           HomePhoto
-          <span className="ml-2">
-            <IoMdPhotos />
-          </span>
+
         </h1>
         <Link>
           <button
@@ -77,13 +75,14 @@ const HomePhoto = () => {
             type="button"
             className="mt-4 px-4 py-2 bg-green-400 text-black rounded-md hover: focus:outline-none focus:ring-2 focus:ring-gray-500 border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
           >
-            Add Album
+            Add Photo
+
           </button>
         </Link>
       </div>
 
-      <div className="container mx-auto p-6">
-        <div className="bg-white shadow-lg rounded-lg p-4">
+      <div className="container p-6">
+        <div className="bg-white shadow-lg rounded-lg lg:p-4 lg:w-[80vw] xs:w-[100vw]">
           <div className="overflow-x-auto">
             <table className="min-w-full table-auto">
               <thead className="bg-black text-white">
@@ -121,7 +120,8 @@ const HomePhoto = () => {
                         onClick={() => deleteRow(row.id)}
                         className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
                       >
-                        Delete Album
+                        Delete Photo
+
                       </button>
                     </td>
                   </tr>
@@ -137,7 +137,8 @@ const HomePhoto = () => {
           <div className="bg-yellow-50 p-8 rounded-lg shadow-lg w-1/3">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-xl text-center font-semibold text-gray-700">
-                Add Album
+                Add Photo
+
               </h2>
               <button
                 className="text-gray-500 font-bold hover:text-gray-700"

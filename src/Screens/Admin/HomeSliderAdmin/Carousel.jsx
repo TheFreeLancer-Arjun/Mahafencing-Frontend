@@ -56,8 +56,8 @@ const Carousel = () => {
       </div>
 
       {console.log(rows)}
-      <div className="container mx-auto p-6">
-        <div className="bg-white shadow-lg rounded-lg p-4">
+      <div className="container  lg:p-6">
+        <div className="bg-white shadow-lg rounded-lg lg:p-4  lg:w-[80vw] xs:w-[100vw]">
           <div className="overflow-x-auto">
             <table className="min-w-full table-auto">
               <thead className="bg-black text-white">

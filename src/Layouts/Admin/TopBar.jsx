@@ -4,7 +4,7 @@ import { FaBars } from "react-icons/fa";
 const TopBar = ({ userName, toggleSidebar, dashboardTitle }) => {
   return (
     <div className="w-full h-16 bg-black text-white flex items-center justify-between px-4 shadow-md      border-[5px] border-[#ffffff]">
-      <div className="text-xl font-bold">name</div>
+      <div className="text-xl font-bold">Mahafencing Association</div>
 
       <div className="flex items-center space-x-4">
         <div className="text-lg">Hi, {userName}</div>

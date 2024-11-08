@@ -20,9 +20,9 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
       } sm:relative sm:translate-x-0 sm:w-64 sm:h-screen sm:block`}
     >
-      <div className="flex items-center justify-center h-20  text-2xl font-bold">
+      <div className="flex items-center justify-center h-20  text-2xl font-bold mt-14">
         <Link to="/">
-          <img src="./images/logo.png" alt="Logo" className="h-24 mr-8 " />
+          <img src="http://mahafencing.in/assets/img/logo.png" alt="Logo" className="h-24 mr-8 " />
         </Link>
       </div>
 

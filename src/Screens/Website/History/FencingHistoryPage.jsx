@@ -8,8 +8,8 @@ const FencingHistoryPage = () => {
         <h1 className="text-3xl font-bold mt-5 mb-5">{title}</h1>
 
         <div className="lg:flex lg:w-[30cm] gap-10  justify-between">
-          <div className="lg:w-[50%] lg:h-[8cm] ">
-            <img src={imageUrl} alt={title} />
+          <div className="lg:w-[50%] lg:h-[8cm]  ">
+            <img src={imageUrl} alt={title} className=" hover:border-[6px] hover:border-[#51B85D] hover:rounded-lg" />
           </div>
           <p className="lg:w-[50%] lg:h-[8cm] mb-4 font-bold">{part1}</p>
         </div>

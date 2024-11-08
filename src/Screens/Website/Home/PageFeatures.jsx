@@ -33,7 +33,7 @@ export default function PageFeatures() {
       </h1>
       <div className="w-full flex lg:flex-row  xs:flex-col justify-around items-center bg-yellow-50 mt-5">
         {ourOfficeBearers.map((bearer, index) => (
-          <div key={index} className="rounded-2xl w-[8cm] h-[13.5cm] shadow-lg overflow-hidden p-0 bg-white border-[2px] border-black mb-5">
+          <div key={index} className="rounded-2xl w-[8cm] h-[13.5cm] shadow-lg overflow-hidden p-0 bg-white border-[2px] border-black mb-5  hover:border-[6px] hover:border-[#51B85D] hover:rounded-lg">
             <img
               className="w-full h-auto object-cover object-center border border-white"
               src={bearer.image}

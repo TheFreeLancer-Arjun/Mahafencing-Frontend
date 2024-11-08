@@ -6,7 +6,7 @@ export default function WebsiteNavbar({ routes }) {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState(null);
   const [currentPageTitle, setCurrentPageTitle] = useState("");
-  const [navHeight, setNavHeight] = useState("h-[4cm]");
+  const [navHeight, setNavHeight] = useState("h-[3cm]");
   const [navColor, setNavColor] = useState("bg-black");
   const location = useLocation();
 
@@ -41,23 +41,23 @@ export default function WebsiteNavbar({ routes }) {
       }
     } else {
       setCurrentPageTitle("");
-      setNavHeight("h-[4cm]");
+      setNavHeight("h-[3cm]");
       setNavColor("bg-black");
     }
   }, [location.pathname, routes]);
 
   return (
     <nav
-      className={`${navColor} text-white text-2xl ${navHeight} transition-all duration-500  `}
+      className={`${navColor} text-white text-2xl ${navHeight} transition-all duration-500   `}
     >
       <div className="w-screen mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center pt-10">
           {/* Logo Section */}
-          <div className="flex items-center ">
+          {/* <div className="flex items-center ">
             <Link to="/">
               <img src="./images/logo.png" alt="Logo" className="lg:h-24 mr-8 xs:h-16  " />
             </Link>
-          </div>
+          </div> */}
 
           {/* Hamburger Icon for Mobile */}
           <button
@@ -77,15 +77,15 @@ export default function WebsiteNavbar({ routes }) {
                     className={`${
                       isActive(route.path) ? "text-black" : "text-white"
                     } ${
-                      ["ABOUT", "GALLERY", "CONTACT"].includes(route.label)
+                      ["ABOUT", "GALLERY", "CONTACT" ,"HOME"].includes(route.label)
                         ? "text-2xl"
                         : "text-sm text-center"
                     } transition-all duration-300 relative font-bold`}
 
-                    style={{
-                      fontWeight: "900",
-                      fontFamily: "DynaPuff",
-                    }}
+                    // style={{
+                    //   fontWeight: "900",
+                    //   fontFamily: "DynaPuff",
+                    // }}
                   >
                     {route.label}
                     <span className="absolute left-0 bottom-0 h-[3px] w-full bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 transform origin-left"></span>

@@ -43,9 +43,9 @@ export default function GalleryPage() {
                       key={index}
                       className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer"
                     >
-                      <div className="relative w-full h-64 overflow-hidden rounded-lg shadow-md group">
+                      <div className="relative w-full h-64 overflow-hidden  shadow-md group  hover:border-[6px] border-[#51B85D] rounded-lg">
                         <div className="relative w-full h-64 bg-black shadow-lg rounded-lg overflow-hidden">
-                          <div className="relative w-full h-64 border-4 border-gray-200 shadow-lg rounded-lg overflow-hidden">
+                          <div className="relative w-full h-64 border-4  shadow-lg  overflow-hidden ">
                             <img
                               src={image.src}
                               alt={image.title || `Gallery ${index + 1}`}

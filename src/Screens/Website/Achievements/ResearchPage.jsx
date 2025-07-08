@@ -40,8 +40,19 @@ export default function ResearchPage() {
 
   return (
     <div className="  ">
-      <div className="overflow-x-scroll">
-        <table className="min-w-full bg-white border border-gray-300">
+       <div className="w-full px-4 lg:px-32 py-20 bg-yellow-50">
+        <h1
+           style={{
+              fontFamily: "CodeProBlack",
+            }}
+          className="text-4xl lg:text-9xl text-start mt-4 mb-4 font-bold uppercase"
+        >
+         research
+        </h1>
+        <div className="p-2 border-t-[15px] border-r-[15px] rounded-2xl border-[#E23A53] flex flex-col lg:flex-row">
+          <div className="rounded-3xl leading-relaxed  w-full">
+              <div className="rounded-3xl ">
+        <table className="min-w-full bg-white border border-gray-300 rounded-3xl ">
           <thead>
             <tr className="bg-black text-white">
               <th className="py-3 px-6 text-left">Sr. No.</th>
@@ -84,6 +95,10 @@ export default function ResearchPage() {
           </tbody>
         </table>
       </div>
+          </div>
+        </div>
+      </div>
+ 
     </div>
   );
 }

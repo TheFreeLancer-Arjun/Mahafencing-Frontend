@@ -1,118 +1,111 @@
-import React, { useState } from "react";
-import { MdOutlineViewCarousel } from "react-icons/md";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useBannerImage } from "../../../hook/useBannerImage"; // adjust path if needed
 
 const Carousel = () => {
-  const [rows, setRows] = useState([
-    {
-      id: 1,
-      image: "https://www.shivajipharma.com/assets/img/banner/s-1.jpg",
-    },
-    {
-      id: 2,
-      image: "blob:http://localhost:3000/faca633f-0f82-4b83-9289-ad9ea8f0c64e",
-    },
-  ]);
+  const {
+    bannerImages,
+    loading,
+    error,
+    fetchAll,
+    upload,
+    deleteBanner,
+  } = useBannerImage();
 
-  const addRow = () => {
-    setRows([...rows, { id: rows.length + 1, image: null }]);
-  };
+  useEffect(() => {
+    fetchAll(); // Fetch images when component mounts
+  }, []);
 
-  const deleteRow = (id) => {
-    const filteredRows = rows.filter((row) => row.id !== id);
-    setRows(filteredRows);
-  };
-
-  const handleImageChange = (e, id) => {
+  const handleImageUpload = async (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const newRows = rows.map((row) =>
-        row.id === id ? { ...row, image: URL.createObjectURL(file) } : row
-      );
-      setRows(newRows);
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append("image", file);
+    formData.append("title", "Carousel Image"); // You can replace or make this editable
+
+    try {
+      await upload(formData);
+    } catch (err) {
+      console.error("Upload failed:", err);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteBanner(id);
+    } catch (err) {
+      console.error("Delete failed:", err);
     }
   };
 
   return (
-    <>
-<div className="bg-yellow-50">
-  
-<div className="flex px-7 justify-between items-center flex-wrap w-full  ">
-        {/* Heading on the Left */}
-        <h1 className="font-extrabold py-4 text-center text-4xl text-black flex items-center justify-center">
-        Carousel
-          
+    <div className="bg-yellow-50 min-h-screen">
+      <div className="flex px-7 justify-between items-center flex-wrap w-full">
+        <h1 className="font-extrabold py-4 text-center text-4xl text-black">
+          BannerImages
         </h1>
-
-        <Link>
-          <button
-            onClick={addRow}
-            type="button"
-            className="mt-4 px-8 py-2 bg-green-400 text-black rounded-md hover: focus:outline-none focus:ring-2 focus:ring-gray-500    border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
-          >
-            Add 
-          </button>
-        </Link>
+        <label className="mt-4 cursor-pointer px-8 py-2 bg-green-400 text-black rounded-md hover:focus:outline-none border border-b-[5px] border-r-[5px] border-black rounded-t-xl">
+          Add Image
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleImageUpload}
+            className="hidden"
+          />
+        </label>
       </div>
 
-      {console.log(rows)}
-      <div className="container  lg:p-6">
-        <div className="bg-white shadow-lg rounded-lg lg:p-4  lg:w-[80vw] xs:w-[100vw]">
+      {loading && <p className="text-center py-4 text-gray-500">Loading...</p>}
+      {error && <p className="text-center text-red-600">{error}</p>}
+
+      <div className="container lg:p-6">
+        <div className="bg-white shadow-lg rounded-lg lg:p-4 lg:w-[80vw] xs:w-[100vw]">
           <div className="overflow-x-auto">
             <table className="min-w-full table-auto">
               <thead className="bg-black text-white">
                 <tr>
                   <th className="px-4 py-2 text-left">Sr. No</th>
-                  <th className="px-4 py-2 text-left">Images</th>
-                  <th className="px-4 py-2 text-left">Add Images</th>
+                  <th className="px-4 py-2 text-left">Image</th>
                   <th className="px-4 py-2 text-left">Action</th>
                 </tr>
               </thead>
               <tbody>
-                {rows.map((row, index) => (
+                {bannerImages.map((img, index) => (
                   <tr
-                    key={row.id}
+                    key={img.id}
                     className="bg-gray-50 hover:bg-gray-100 transition"
                   >
                     <td className="border px-4 py-2">{index + 1}</td>
                     <td className="border px-4 py-2">
                       <img
-                        src={row.image}
-                        alt="Uploaded"
+                        src={img.url}
+                        alt={`banner-${index}`}
                         className="h-20 w-24 object-cover rounded-md shadow"
-                        required
-                      />
-                    </td>
-                    <td className="border px-4 py-2 text-center">
-                      <input
-                        type="file"
-                        accept="image/*"
-                        required
-                        onChange={(e) => handleImageChange(e, row.id)}
-                        className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
                       />
                     </td>
                     <td className="border px-4 py-2 text-center">
                       <button
-                        type="button"
-                        onClick={() => deleteRow(row.id)}
-                        className="px-8 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500    border border-b-[5px] border-r-[5px] border-black    rounded-t-xl"
+                        onClick={() => handleDelete(img.id)}
+                        className="px-8 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
                       >
                         Delete
                       </button>
                     </td>
                   </tr>
                 ))}
+                {bannerImages.length === 0 && !loading && (
+                  <tr>
+                    <td colSpan={3} className="text-center py-4 text-gray-500">
+                      No banner images found.
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
         </div>
       </div>
-  
-  
-  </div> 
-
-    </>
+    </div>
   );
 };
 

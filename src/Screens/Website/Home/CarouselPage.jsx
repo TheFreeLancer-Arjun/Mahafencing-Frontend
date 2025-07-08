@@ -1,206 +1,133 @@
 import React, { useEffect, useState } from "react";
-import { homePageSlider } from "../../../data/HomePage";
+import MobileCard from "./component/MobileCard";
+import InfoCard from "./component/InfoCard";
+import FloatingText from "./component/FloatingText";
+import { useBannerImage } from "../../../hook/useBannerImage";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const CarouselPage = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { bannerImages, loading, error, fetchAll } = useBannerImage();
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % homePageSlider.length);
-    }, 3000);
-    return () => clearInterval(interval);
+    fetchAll(); // ✅ Just call, don't await
   }, []);
+
+  useEffect(() => {
+    if (bannerImages.length === 0) return;
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % bannerImages.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [bannerImages]);
+
+  if (loading) {
+    return (
+      <>
+        {/* Banner Carousel Skeleton */}
+        <div className="relative w-screen bg-[#FEF9D9]">
+          <div className="relative h-48 sm:h-64 md:h-80 lg:h-[110vh] overflow-hidden animate-pulse">
+            {/* Image area */}
+            <div className="absolute w-full h-full bg-gray-300" />
+
+            {/* Gradient Overlay */}
+            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/50 to-transparent z-10" />
+
+            {/* Floating Text Placeholder */}
+            <div className="absolute left-20 top-52 z-20 hidden md:flex flex-col gap-4">
+              <div className="h-6 w-80 bg-gray-500 rounded"></div>
+              <div className="h-20 w-[24rem] bg-gray-300 rounded"></div>
+              <div className="h-24 w-[30rem] bg-gray-300 rounded"></div>
+            </div>
+
+            {/* Info Cards Placeholder */}
+            <div className="absolute bottom-[-26px] right-[21.2cm] h-[8cm] w-[9cm] bg-gray-300 rounded-l-[40px] p-8 z-20 hidden md:flex" />
+            <div className="absolute bottom-[-26px] right-[12.1cm] h-[11cm] w-[9cm] bg-gray-300 rounded-l-[40px] p-8 z-20 hidden md:flex" />
+            <div className="absolute bottom-[-26px] right-28 h-[11cm] w-[9cm] bg-gray-400 rounded-l-[40px] p-8 z-20 hidden md:flex" />
+          </div>
+        </div>
+
+        {/* Mobile Card Skeleton */}
+        <div className="md:hidden bg-black flex flex-col items-end justify-end animate-pulse">
+          <div className="flex flex-col items-end text-white h-[4cm] w-full px-4 gap-2">
+            <div className="h-4 w-48 bg-gray-500 rounded"></div>
+            <div className="h-8 w-60 bg-gray-400 rounded"></div>
+            <div className="h-10 w-72 bg-gray-300 rounded"></div>
+          </div>
+
+          {[...Array(3)].map((_, i) => (
+            <div
+              key={i}
+              className={`h-[${i === 0 ? "2.5cm" : "3.5cm"}] w-[10cm] bg-gray-${
+                300 + i * 100
+              } text-white rounded-l-2xl p-6 my-2`}
+            />
+          ))}
+        </div>
+      </>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="w-full h-[80vh] flex justify-center items-center bg-red-100 text-red-700 font-bold">
+        Failed to load banners: {error}
+      </div>
+    );
+  }
 
   return (
     <>
       <div id="controls-carousel" className="relative w-screen bg-[#FEF9D9]">
-        {/* Carousel wrapper */}
-        <div className="relative h-48 sm:h-64 md:h-80 lg:h-[90vh] overflow-hidden rounded-lg">
-          {homePageSlider.map((image, index) => (
+        <div className="relative h-80 sm:h-80 md:h-[110vh] lg:h-[110vh] overflow-hidden">
+          {bannerImages.map((item, index) => (
             <div
               key={index}
               className={`duration-700 ease-in-out absolute top-0 left-0 w-full h-full transition-opacity ${
                 activeIndex === index ? "opacity-100" : "opacity-0"
               }`}
-              data-carousel-item={index === activeIndex ? "active" : ""}
             >
               <img
-                src={image}
-                className="absolute w-full h-full object-cover"
-                alt={`Slide ${index + 1}`}
+                src={item.url} // ✅ Correct property name
+                className="absolute w-full h-full object-fill"
+                alt={item.title || `Banner ${index + 1}`}
               />
-              {/* Overlay for better text visibility */}
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/100 to-transparent z-10" />
             </div>
           ))}
 
-          {/* Centered text */}
-          <div className="absolute left-20 top-52 flex flex-col items-center justify-center text-white z-[100] h-[4cm] w-[19cm] xs:hidden md:flex">
-            <div className="w-full pl-4 mb-4">
-              <p className="text-2xl  text-gray-300 flex justify-start font-bold">
-                The fire is within all of us
-              </p>
-            </div>
-            <h2
-              className="font-bold leading-[2.1cm] uppercase"
-              style={{ fontWeight: "900", fontFamily: "Anton" }}
-            >
-              <h2 className="text-7xl ">We are the</h2>
-              <h2 className="text-8xl">best Associations</h2>
-            </h2>
-          </div>
-
-          {/* Orange box at the bottom */}
-          <div className="absolute bottom-[-20px] right-28 h-[10cm] w-[9cm] bg-[#06B4DB] text-white items-center justify-center rounded-l-[30px] p-8 z-20 hidden md:flex">
-            <div className="text-black ">
-              <p className="text-lg font-bold uppercase ">Countdown to</p>
-              <h2
-                className="text-3xl font-bold uppercase"
-                style={{
-                  fontWeight: "900",
-                  fontFamily: "DynaPuff",
-                }}
-              >
-                International, Asian & Olympic
-              </h2>
-              <p
-                className="text-7xl font-bold my-2"
-                style={{
-                  fontWeight: "900",
-                  fontFamily: "DynaPuff",
-                }}
-              >
-                15,000+
-              </p>
-              <p
-                className="text-2xl font-bold"
-                style={{
-                  fontWeight: "900",
-                  fontFamily: "DynaPuff",
-                }}
-              >
-                Registered Players
-              </p>
-              <p className="text-lg mt-5">At Mahafencing Associations</p>
-            </div>
-          </div>
+          <FloatingText />
+          <InfoCard />
         </div>
 
-        {/* Previous button */}
+        {/* Previous Button */}
         <button
-          type="button"
-          className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
           onClick={() =>
-            setActiveIndex((prevIndex) =>
-              prevIndex === 0 ? homePageSlider.length - 1 : prevIndex - 1
+            setActiveIndex((prev) =>
+              prev === 0 ? bannerImages.length - 1 : prev - 1
             )
           }
-          data-carousel-prev
+          className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group"
         >
-          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg
-              className="w-4 h-4 text-white dark:text-gray-800"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M5 1 1 5l4 4"
-              />
-            </svg>
-            <span className="sr-only">Previous</span>
+          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full lg:bg-white/30 ">
+            <ChevronLeft className="text-white w-6 h-6" />
           </span>
         </button>
 
-        {/* Next button */}
+        {/* Next Button */}
         <button
-          type="button"
-          className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
           onClick={() =>
-            setActiveIndex(
-              (prevIndex) => (prevIndex + 1) % homePageSlider.length
-            )
+            setActiveIndex((prev) => (prev + 1) % bannerImages.length)
           }
-          data-carousel-next
+          className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group"
         >
-          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-            <svg
-              className="w-4 h-4 text-white dark:text-gray-800"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 6 10"
-            >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="m1 9 4-4-4-4"
-              />
-            </svg>
-            <span className="sr-only">Next</span>
+          <span className="inline-flex items-center justify-center w-10 h-10 rounded-full lg:bg-white/30 group-hover:bg-white/50">
+            <ChevronRight className="text-white w-6 h-6" />
           </span>
         </button>
       </div>
 
-      {/* Box for mobile only */}
-      <div className="h-[7cm] bg-black flex   flex-col items-end justify-end md:hidden ">
-        {/* Centered text */}
-        <div className=" flex flex-col items-end justify-end text-white h-[4cm] w-[19cm] ">
-          <div className="w-full pl-6">
-            <p className="text-sm flex justify-end font-bold mr-56">
-              The fire is within all of us
-            </p>
-          </div>
-          <h2
-            className="font-bold leading-[2.1cm] uppercase mr-32"
-            style={{ fontWeight: "900", fontFamily: "Anton" }}
-          >
-            <h2 className="text-3xl">We are the</h2>
-            <h2 className="text-4xl">best Association</h2>
-          </h2>
-        </div>
-
-        <div className="h-[3.5cm] w-[9.5cm] bg-[#06B4DB] text-white flex items-center justify-start rounded-l-2xl pt-4  pb-4 p-6 leading-[16px] ">
-          <div className="text-black ">
-            <p className="text-[14px] font-light uppercase">Countdown to</p>
-            <h2
-              className="text-[17px] font-bold uppercase"
-              style={{
-                fontWeight: "900",
-                fontFamily: "DynaPuff",
-              }}
-            >
-              International, Asian, and Olympic
-            </h2>
-            <p
-              className="text-4xl font-bold my-2"
-              style={{
-                fontWeight: "900",
-                fontFamily: "DynaPuff",
-              }}
-            >
-              15,000+
-            </p>
-            <p
-              className="text-md font-bold"
-              style={{
-                fontWeight: "900",
-                fontFamily: "DynaPuff",
-              }}
-            >
-              Registered Players
-            </p>
-            <p className="text-xs mt-1">At Mahafencing Associations</p>
-          </div>
-        </div>
-      </div>
+      <MobileCard />
     </>
   );
 };

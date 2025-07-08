@@ -90,50 +90,7 @@ const PhotosGallery = () => {
             </div>
           </section>
 
-          {/* Modal for full-size image */}
-          {showModal && selectedIndex !== null && (
-            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
-              <button
-                className="absolute top-2 right-2 bg-white text-black p-2 rounded-full text-2xl"
-                onClick={closeModal}
-              >
-                <AiOutlineCloseCircle />
-              </button>
-              <button
-                className="absolute right-40  top-1/2 bg-white text-black text-xl px-4 py-2 rounded-full shadow-lg transform -translate-y-1/2"
-                onClick={nextImage}
-              >
-                <GrChapterNext />
-              </button>
-
-              <button
-                className="absolute left-40   top-1/2 bg-white text-black text-xl px-4 py-2 rounded-full shadow-lg transform -translate-y-1/2"
-                onClick={previousImage}
-              >
-                <GrChapterPrevious />
-              </button>
-              <div className="relative">
-                <img
-                  src={images[selectedIndex].src}
-                  alt={images[selectedIndex].title}
-                  className="max-w-full max-h-screen object-contain"
-                />
-                <button
-                  className="absolute lg:hidden right-4 top-1/2 bg-gray-800 text-white text-xl px-4 py-2 rounded-full shadow-lg transform -translate-y-1/2"
-                  onClick={nextImage}
-                >
-                  <GrChapterNext />
-                </button>
-
-                <button
-                  className="absolute lg:hidden left-4 top-1/2 bg-gray-800 text-white text-xl px-4 py-2 rounded-full shadow-lg transform -translate-y-1/2"
-                  onClick={previousImage}
-                >
-                  <GrChapterPrevious />
-                </button>
-              </div>
-            </div>
-          )}
+        
         </div>
       </div>
     </div>

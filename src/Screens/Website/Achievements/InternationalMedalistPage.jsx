@@ -42,13 +42,18 @@ export default function InternationalMedalistPage() {
 
   return (
     <div className="bg-yellow-50">
-      <span className="flex justify-center lg:p-10 p-5">
-        <span className="text-lg  xs:text-base px-3  py-3 bg-white uppercase font-bold  border  border-b-[3px] border-r-[3px] border-green-400  rounded-t-xl">
-          International Medalist
-        </span>
-      </span>
-
-      {/* Render PdfCards */}
+       <div className="w-full px-4 lg:px-32 py-20 bg-yellow-50">
+        <h1
+           style={{
+              fontFamily: "CodeProBlack",
+            }}
+          className="text-4xl lg:text-9xl text-start mt-4 mb-4 font-bold uppercase"
+        >
+         International Medalist
+        </h1>
+        <div className="p-2 border-t-[15px] border-r-[15px] rounded-2xl border-[#E23A53] flex flex-col lg:flex-row">
+          <div className="rounded-lg leading-relaxed  w-full">
+             {/* Render PdfCards */}
       <div className="flex flex-wrap justify-start items-center w-screen gap-5 p-10">
         {pdfData.map((pdf, index) => (
           <PdfCard
@@ -59,6 +64,11 @@ export default function InternationalMedalistPage() {
           />
         ))}
       </div>
+          </div>
+        </div>
+      </div>
+  
+     
     </div>
   );
 }

@@ -70,6 +70,7 @@ const StateSportsAward = () => {
   return (
     <>
       <div className="flex px-5 sm:px-7 justify-between items-center flex-wrap w-full">
+        
         <h1 className="font-extrabold py-4 text-center text-2xl sm:text-4xl text-black flex items-center justify-center uppercase">
           Shiv Chhatrapati State Sports Award
         </h1>

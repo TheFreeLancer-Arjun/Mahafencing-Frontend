@@ -29,9 +29,52 @@ const routes = [
         icon: <TbCarouselHorizontal />, // Icon for Admission
         component: "Admission",
       },
+     
+         {
+        name: "NewaShow",
+        path: "/admin/news-show",
+        icon: <MdAddAPhoto />, // Icon for Attendance
+        component: "Attendance",
+      },
+       {
+        name: "Mahafencing",
+        path: "/admin/mahafencing",
+        icon: <MdAddAPhoto />, // Icon for Attendance
+        component: "Attendance",
+      },
+       {
+        name: "BlueCard",
+        path: "/admin/blue-card",
+        icon: <MdAddAPhoto />, // Icon for Attendance
+        component: "Attendance",
+      },
+       {
+        name: "NumberStats",
+        path: "/admin/number-stats",
+        icon: <MdAddAPhoto />, // Icon for Attendance
+        component: "Attendance",
+      },
       {
-        name: "HomePhoto",
-        path: "/admin/home-photo",
+        name: "OurInspirations",
+        path: "/admin/our-inspirations",
+        icon: <MdAddAPhoto />, // Icon for Attendance
+        component: "Attendance",
+      },
+      {
+        name: "OfficeBearers",
+        path: "/admin/office-bearers-static",
+        icon: <MdAddAPhoto />, // Icon for Attendance
+        component: "Attendance",
+      },
+      {
+        name: "GALLERY",
+        path: "/admin/show-gallery",
+        icon: <MdAddAPhoto />, // Icon for Attendance
+        component: "Attendance",
+      },
+      {
+        name: "NumberStats",
+        path: "/admin/number-stats",
         icon: <MdAddAPhoto />, // Icon for Attendance
         component: "Attendance",
       },

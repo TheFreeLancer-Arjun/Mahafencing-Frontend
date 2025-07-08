@@ -1,133 +1,52 @@
-import { FaBuilding, FaHome, FaInfoCircle, FaPhone } from "react-icons/fa";
 
 const WebsiteRoutes = [
-  // { path: "/", label: "HOME", icon: <FaHome /> },
-  { path: "/about", label: "ABOUT", icon: <FaInfoCircle /> },
-
-  { path: "/gallery", label: "GALLERY", icon: <FaPhone /> },
-  { path: "/contact", label: "CONTACT", icon: <FaPhone /> },
-
-  {
-    label: "HISTORY",
-    icon: <FaInfoCircle />,
-    submenu: [
-      {
-        path: "/history/fencing",
-        label: "Fencing History",
-        icon: <FaInfoCircle />,
-      },
-      {
-        path: "/history/fai",
-        label: "FAI History",
-        icon: <FaInfoCircle />,
-      },
-      {
-        path: "/history/mfa",
-        label: "MFA History",
-        icon: <FaInfoCircle />,
-      },
-    ],
-  },
-  {
-    label: "ACHIEVEMENTS",
-    icon: <FaBuilding />,
-    submenu: [
-      {
-        path: "/achievement/shivchhatrapati-awardee",
-        label: "Shivchhatrapati Awardee",
-        icon: <FaInfoCircle />,
-      },
-      {
-        path: "/achievement/dist-sport-awardee",
-        label: "Dist. Sports Awardee",
-        icon: <FaInfoCircle />,
-      },
-      {
-        path: "/achievement/national-medalist",
-        label: "National Medalist",
-        icon: <FaInfoCircle />,
-      },
-      {
-        path: "/achievement/international-medalist",
-        label: "International Medalist",
-        icon: <FaInfoCircle />,
-      },
-      {
-        path: "/achievement/research",
-        label: "Research",
-        icon: <FaInfoCircle />,
-      },
-    ],
-  },
-  {
-    label: "OUR TEAM",
-    icon: <FaBuilding />,
-    submenu: [
-      {
-        path: "/team/office-bearer",
-        label: "Office Bearers",
-        icon: <FaInfoCircle />,
-      },
-      // {
-      //   path: "/team/sub-committee",
-      //   label: "Sub Committee",
-      //   icon: <FaInfoCircle />,
-      // },
-      {
-        path: "/team/nis-coaches",
-        label: "NIS Coaches",
-        icon: <FaInfoCircle />,
-      },
-      {
-        path: "https://mahafencing.in/assets/QUALIFIED%20REFEREE.pdf",
-        label: "Qualified Referee",
-        icon: <FaInfoCircle />,
-      },
-      {
-        path: "/team/annual-report",
-        label: "Annual Report",
-        icon: <FaInfoCircle />,
-      },
-    ],
-  },
-  {
-    label: "RESULTS",
-    icon: <FaBuilding />,
-    submenu: [
-      {
-        path: "https://www.fencingindia.org/national-results",
-        label: "National Results",
-        icon: <FaInfoCircle />,
-      },
-      {
-        path: "https://fie.org/competitions",
-        label: "International Results",
-        icon: <FaInfoCircle />,
-      },
-    ],
-  },
+  { path: "/", label: "HOME" },
+  { path: "/about", label: "ABOUT" },
+  { path: "/gallery", label: "GALLERY" },
+  { path: "/contact", label: "CONTACT" },
 
   {
-    label: "LOGIN REGISTER",
-    icon: <FaPhone />,
-    submenu: [
-      {
-        path: "https://register.mahafencing.in/candidate",
-        label: "Candidate Login",
-        icon: <FaPhone />,
-      },
-      {
-        path: "https://register.mahafencing.in/candidate/registration",
-        label: "New Registration",
-        icon: <FaPhone />,
-      },
+    label: " History",
+    subroute: [
+      { path: "/history/fencing", label: "Fencing History" },
+      { path: "/history/fai", label: "FAI History" },
+      { path: "/history/mfa", label: "MFA History" },
     ],
   },
   {
-    path: "https://register.mahafencing.in/",
-    label: "Department Login",
-    icon: <FaPhone />,
+    label: " Achievements",
+    subroute: [
+      { path: "/achievement/shivchhatrapati-awardee", label: "Shivchhatrapati Awardee" },
+      { path: "/achievement/dist-sport-awardee", label: "Dist. Sports Awardee" },
+      { path: "/achievement/national-medalist", label: "National Medalist" },
+      { path: "/achievement/international-medalist", label: "International Medalist" },
+      { path: "/achievement/research", label: "Research" },
+    ],
   },
+  {
+    label: " Ourteam",
+    subroute: [
+      { path: "/team/office-bearer", label: "Office Bearers" },
+      { path: "/team/nis-coaches", label: "NIS Coaches" },
+      { path: "https://mahafencing.in/assets/QUALIFIED%20REFEREE.pdf", label: "Qualified Referee" },
+      { path: "/team/annual-report", label: "Annual Report" },
+    ],
+  },
+  {
+    label: "Results",
+    subroute: [
+      { path: "https://www.fencingindia.org/national-results", label: "National Results" },
+      { path: "https://fie.org/competitions", label: "International Results" },
+    ],
+  },
+  {
+    label: "LoginRegister",
+    subroute: [
+      { path: "https://register.mahafencing.in/candidate", label: "Candidate Login" },
+      { path: "https://register.mahafencing.in/candidate/registration", label: "New Registration" },
+    ],
+  },
+ 
 ];
 
 export default WebsiteRoutes;

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 
 import {
   AboutPage,
@@ -24,6 +24,9 @@ import {
   LoginPage,
   Carousel,
   HomePhoto,
+  NewsShow,
+  Mahafencingshow,
+  BlueCardshow,
   StateSportsAward,
   DistSportsAwaed,
   Medalist,
@@ -31,18 +34,19 @@ import {
   OfficeBearer,
   NisCoaches,
   AnnualReport,
-  Gallery
+  Gallery,
+  NumberStatsshow,
+  OurInspirationsshow,
+  OfficeBearerStaticShow,
+  GALLERYshow,
 } from "./Screens/Admin";
 
 import AdminLayout from "./Layouts/Admin/AdminLayout";
-
 import WebsiteLayout from "./Layouts/Website/WebsiteLayout";
-// import ModalPage from "./Screens/Website/Modal/ModalPage";
 
 export default function App() {
   return (
     <Router>
-      {/* <ModalPage /> */}
       <Routes>
         {/* Website Routes */}
         <Route path="/" element={<WebsiteLayout />}>
@@ -80,6 +84,24 @@ export default function App() {
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="/admin/home-slider" element={<Carousel />} />
           <Route path="/admin/home-photo" element={<HomePhoto />} />
+          <Route path="/admin/news-show" element={<NewsShow />} />
+          <Route path="/admin/mahafencing" element={<Mahafencingshow />} />
+          <Route path="/admin/blue-card" element={<BlueCardshow />} />
+          <Route path="/admin/number-stats" element={<NumberStatsshow />} />
+          <Route
+            path="/admin/our-inspirations"
+            element={<OurInspirationsshow />}
+          />
+          <Route
+            path="/admin/office-bearers-static"
+            element={<OfficeBearerStaticShow />}
+          />
+            <Route
+            path="/admin/show-gallery"
+            element={<GALLERYshow />}
+
+          />
+          
           <Route
             path="/admin/achievements/state-sports-award"
             element={<StateSportsAward />}
@@ -88,17 +110,12 @@ export default function App() {
             path="/admin/achievements/dist-sports-award"
             element={<DistSportsAwaed />}
           />
-
           <Route path="/admin/achievements/medalist" element={<Medalist />} />
-
           <Route path="/admin/achievements/research" element={<Research />} />
-
-
           <Route path="/admin/team/office-bearer" element={<OfficeBearer />} />
           <Route path="/admin/team/nis-coaches" element={<NisCoaches />} />
           <Route path="/admin/team/annual-report" element={<AnnualReport />} />
           <Route path="/admin/gallery" element={<Gallery />} />
-          
         </Route>
       </Routes>
     </Router>

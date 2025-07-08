@@ -14,7 +14,7 @@ const Medalist = () => {
 
   const [pdf, setPdf] = useState("");
   const [year, setYear] = useState("");
-  const [medalistType, setMedalistType] = useState(""); // Add medalistType state
+  const [medalistType, setMedalistType] = useState("");
   const [errors, setErrors] = useState({});
   const [isOpen, setIsOpen] = useState(false);
 
@@ -25,7 +25,7 @@ const Medalist = () => {
     const errors = {};
     if (!pdf.trim()) errors.pdf = "PDF link is required.";
     if (!year.trim()) errors.year = "Year is required.";
-    if (!medalistType.trim()) errors.medalistType = "Medalist type selection is required."; // Add medalistType validation
+    if (!medalistType.trim()) errors.medalistType = "Medalist type selection is required.";
     return errors;
   };
 
@@ -41,13 +41,13 @@ const Medalist = () => {
       id: rows.length + 1,
       pdf,
       year,
-      medalistType, // Include medalistType in the new row
+      medalistType,
     };
 
     setRows([...rows, newRow]);
     setPdf("");
     setYear("");
-    setMedalistType(""); // Reset medalistType field
+    setMedalistType("");
     closeModal();
   };
 
@@ -58,53 +58,50 @@ const Medalist = () => {
 
   return (
     <>
-      <div className="flex px-7 justify-between items-center flex-wrap w-full">
-        <h1 className="font-extrabold py-4 text-center text-4xl text-gray-800 flex items-center justify-center">
+      <div className="flex px-4 md:px-7 justify-between items-center flex-wrap w-full">
+        <h1 className="font-extrabold py-4 text-center text-2xl md:text-4xl text-black flex items-center justify-center">
           Medalist
-          <span className="ml-2">
-            <IoMdPhotos />
-          </span>
         </h1>
         <Link>
           <button
             onClick={openModal}
             type="button"
-            className="mt-4 px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-950 focus:outline-none focus:ring-2 focus:ring-gray-500"
+            className="mt-4 px-4 py-2 bg-green-400 text-black rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500 border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
           >
-            Add Research
+            Add Medalist
           </button>
         </Link>
       </div>
 
-      <div className="container mx-auto p-6">
-        <div className="bg-white shadow-lg rounded-lg p-4">
+      <div className="container p-4 md:p-6">
+        <div className="bg-white shadow-lg rounded-lg p-4 w-full md:w-[80vw]">
           <div className="overflow-x-auto">
             <table className="min-w-full table-auto">
-              <thead className="bg-gray-500 text-white">
+              <thead className="bg-black text-white">
                 <tr>
-                  <th className="px-4 py-2 text-left">Sr. No</th>
-                  <th className="px-4 py-2 text-left">Year</th>
-                  <th className="px-4 py-2 text-left">PDF</th>
-                  <th className="px-4 py-2 text-left">Medalist Type</th>
-                  <th className="px-4 py-2 text-left">Action</th>
+                  <th className="px-2 md:px-4 py-2 text-left">Sr. No</th>
+                  <th className="px-2 md:px-4 py-2 text-left">Year</th>
+                  <th className="px-2 md:px-4 py-2 text-left">PDF</th>
+                  <th className="px-2 md:px-4 py-2 text-left">Medalist Type</th>
+                  <th className="px-2 md:px-4 py-2 text-left">Action</th>
                 </tr>
               </thead>
               <tbody>
                 {rows.map((row, index) => (
                   <tr key={row.id} className="bg-gray-50 hover:bg-gray-100 transition">
-                    <td className="border px-4 py-2">{index + 1}</td>
-                    <td className="border px-4 py-2">{row.year}</td>
-                    <td className="border px-4 py-2">
+                    <td className="border px-2 md:px-4 py-2">{index + 1}</td>
+                    <td className="border px-2 md:px-4 py-2">{row.year}</td>
+                    <td className="border px-2 md:px-4 py-2">
                       <a href={row.pdf} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
                         View PDF
                       </a>
                     </td>
-                    <td className="border px-4 py-2 text-center">{row.medalistType}</td>
-                    <td className="border px-4 py-2 text-center">
+                    <td className="border px-2 md:px-4 py-2 text-center">{row.medalistType}</td>
+                    <td className="border px-2 md:px-4 py-2 text-center">
                       <button
                         type="button"
                         onClick={() => deleteRow(row.id)}
-                        className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500"
+                        className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
                       >
                         Delete
                       </button>
@@ -118,10 +115,10 @@ const Medalist = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-gray-200 p-8 rounded-lg shadow-lg w-1/3">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 px-4 md:px-0">
+          <div className="bg-yellow-50 p-4 md:p-8 rounded-lg shadow-lg w-full md:w-1/3">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl text-center font-semibold text-gray-700">Add Research</h2>
+              <h2 className="text-lg md:text-xl text-center font-semibold text-gray-700">Add Medalist</h2>
               <button className="text-gray-500 font-bold hover:text-gray-700" onClick={closeModal}>
                 &#x2715;
               </button>
@@ -162,7 +159,7 @@ const Medalist = () => {
                 </select>
                 {errors.medalistType && <p className="text-red-500 text-sm mt-1">{errors.medalistType}</p>}
               </div>
-              <button type="submit" className="px-4 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-950 w-full">
+              <button type="submit" className="px-4 py-2 bg-green-400 text-black rounded-md w-full border border-b-[5px] border-r-[5px] border-black rounded-t-xl">
                 Add
               </button>
             </form>

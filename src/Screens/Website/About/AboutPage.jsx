@@ -6,12 +6,14 @@ export default function AboutPage() {
       {/* Content Section */}
       <div className="w-full px-4 lg:px-32 py-20 bg-yellow-50">
         <h1
-          style={{ fontWeight: "900", fontFamily: "DynaPuff" }}
-          className="text-2xl lg:text-5xl text-start mt-4 mb-4 font-bold uppercase"
+           style={{
+              fontFamily: "CodeProBlack",
+            }}
+          className="text-4xl lg:text-9xl text-start mt-4 mb-4 font-bold uppercase"
         >
           Mahafencing Association
         </h1>
-        <div className="p-2 border-t-[15px] border-r-[15px] rounded-2xl border-[#06B4DB] flex flex-col lg:flex-row">
+        <div className="p-2 border-t-[15px] border-r-[15px] rounded-2xl border-[#E23A53] flex flex-col lg:flex-row">
           <div className="rounded-lg leading-relaxed  w-full">
             <div className="anime w-full p-5">
               <div className="anime text-black mt-3 lg:mt-7 text-sm lg:text-xl">

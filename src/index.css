@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  font-family: "Graphik";
+}
+
 .marquee-container {
   overflow: hidden;
   white-space: nowrap; /* Prevents text from wrapping */
@@ -56,20 +60,19 @@
 .animate-scroll {
   animation: scroll 20s linear infinite;
 }
+
 @font-face {
-  font-family: 'DynaPuff';
-  src: url(Fonts/LilitaOne-Regular.ttf)  format('truetype');
-  font-weight: 100 900; /* Specify the range of weights */
-  font-style: normal; 
+  font-family: "CodeProBlack";
+  src: url(Fonts/code_pro_black.otf) format("truetype");
+  font-weight: 700; /* Specify the range of weights */
+  font-style: normal;
 }
 
-
-
 @font-face {
-  font-family: 'Anton';
-  src: url(Fonts/Anton-Regular.ttf)format('truetype');
-  font-weight: 100 900; /* Specify the range of weights */
-  font-style: normal; 
+  font-family: "Graphik";
+  src: url(Fonts/Graphik-Regular-Trial.otf) format("truetype");
+  font-weight: 100; /* Specify the range of weights */
+  font-style: normal;
 }
 
 .line-clamp-2 {
@@ -78,4 +81,12 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.bg-image-text {
+  background-image: url("https://idsb.tmgrup.com.tr/ly/uploads/images/2024/04/09/thumbs/800x531/323101.jpg"); /* Replace with your image URL */
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
 }

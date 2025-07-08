@@ -13,7 +13,7 @@ const OfficeBearer = () => {
       location: "Default Location",
     },
   ]);
-  
+
   const [name, setName] = useState("");
   const [location, setLocation] = useState("");
   const [image, setImage] = useState(null);
@@ -23,14 +23,13 @@ const OfficeBearer = () => {
 
   const openModal = () => {
     setIsOpen(true);
-    // Reset fields when modal opens
     setName("");
     setLocation("");
     setImage(null);
     setSize("large");
     setErrors({});
   };
-  
+
   const closeModal = () => {
     setIsOpen(false);
     setErrors({});
@@ -78,21 +77,20 @@ const OfficeBearer = () => {
 
   return (
     <>
-      <div className="flex px-7 justify-between items-center flex-wrap w-full">
-        <h1 className="font-extrabold py-4 text-center text-4xl text-gray-800 flex items-center justify-center uppercase">
-          OfficeBearer
+      <div className="flex flex-col md:flex-row px-4 md:px-7 justify-between items-center w-full">
+        <h1 className="font-extrabold py-4 text-center text-3xl md:text-4xl text-black uppercase">
+          Office Bearer
         </h1>
         <button
           onClick={openModal}
-          type="button"
           className="mt-4 px-4 py-2 bg-green-400 text-black rounded-md hover:focus:outline-none focus:ring-2 focus:ring-gray-500 border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
         >
-          Add Album
+          Add OfficeBearer
         </button>
       </div>
 
-      <div className="container mx-auto p-6">
-        <div className="bg-white shadow-lg rounded-lg p-4">
+      <div className="container p-4 md:p-6 mx-auto">
+        <div className="bg-white shadow-lg rounded-lg p-4 lg:w-[80vw] w-full">
           <div className="overflow-x-auto">
             <table className="min-w-full table-auto">
               <thead className="bg-black text-white">
@@ -108,20 +106,19 @@ const OfficeBearer = () => {
               <tbody>
                 {rows.map((row, index) => (
                   <tr key={row.id} className="bg-gray-50 hover:bg-gray-100 transition">
-                    <td className="border px-4 py-2">{index + 1}</td>
-                    <td className="border px-4 py-2">
-                      <img src={row.image} alt="Uploaded" className="h-20 w-24 object-cover rounded-md shadow" />
+                    <td className="border px-2 py-2 text-sm md:px-4 md:py-2">{index + 1}</td>
+                    <td className="border px-2 py-2">
+                      <img src={row.image} alt="Uploaded" className="h-16 w-20 md:h-20 md:w-24 object-cover rounded-md shadow" />
                     </td>
-                    <td className="border px-4 py-2">{row.name}</td>
-                    <td className="border px-4 py-2">{row.location}</td>
-                    <td className="border px-4 py-2">{row.size}</td>
-                    <td className="border px-4 py-2 text-center">
+                    <td className="border px-2 py-2 text-sm md:px-4 md:py-2">{row.name}</td>
+                    <td className="border px-2 py-2 text-sm md:px-4 md:py-2">{row.location}</td>
+                    <td className="border px-2 py-2 text-sm md:px-4 md:py-2">{row.size}</td>
+                    <td className="border px-2 py-2 text-center">
                       <button
-                        type="button"
                         onClick={() => deleteRow(row.id)}
-                        className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
+                        className="px-3 py-1 bg-red-500 text-white rounded-md hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 border border-b-[5px] border-r-[5px] border-black rounded-t-xl"
                       >
-                        Delete Album
+                        Delete
                       </button>
                     </td>
                   </tr>
@@ -133,10 +130,10 @@ const OfficeBearer = () => {
       </div>
 
       {isOpen && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-gray-200 p-8 rounded-lg shadow-lg w-1/3">
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+          <div className="bg-yellow-50 p-6 rounded-lg shadow-lg w-full max-w-md">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl text-center font-semibold text-gray-700">Add Album</h2>
+              <h2 className="text-xl font-semibold text-gray-700">Add OfficeBearer</h2>
               <button className="text-gray-500 font-bold hover:text-gray-700" onClick={closeModal}>
                 &#x2715;
               </button>

@@ -1,8 +1,8 @@
 const homePageSlider = [
-  "http://mahafencing.in/assets/img/banner/IFF.jpg",
-  "http://mahafencing.in/assets/img/banner/MFA%20(1).jpg",
-  "http://mahafencing.in/assets/img/banner/IFF.jpg",
-  "http://mahafencing.in/assets/img/banner/MFA%20(1).jpg",
+  "https://mahafencing.in/banner1.webp",
+  "https://mahafencing.in/banner2.webp",
+  "https://mahafencing.in/banner3.webp",
+  "https://mahafencing.in/banner4.webp",
 ];
 
 const newsScroll = [
@@ -10,36 +10,48 @@ const newsScroll = [
     news: "List of Selected Students for Youth Leadership Training Programm",
     icon: "🚀",
   },
-  { news: " Pharmacy Council of India (PCI)", icon: "🎉" },
-  { news: " Pharmacy Council of India (PCI)", icon: "📰" },
-  { news: " Pharmacy Council of India (PCI)", icon: "🌟" },
-  { news: " Pharmacy Council of India (PCI)", icon: "⚡" },
+  {
+    news: "Shri Chhatrapati Shivaji Maharaj established Swaraj (Own Kingdom) in the country",
+    icon: "🎉",
+  },
+  {
+    news: " Shri Chhatrapati Shivaji Maharaj established Swaraj (Own Kingdom) in the country",
+    icon: "📰",
+  },
+  {
+    news: " Shri Chhatrapati Shivaji Maharaj established Swaraj (Own Kingdom) in the country",
+    icon: "🌟",
+  },
+  {
+    news: " Shri Chhatrapati Shivaji Maharaj established Swaraj (Own Kingdom) in the country",
+    icon: "⚡",
+  },
 ];
 
 const notices = [
   {
-    text: "1Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, vero",
-    date: "28/6/1991",
+    text: "Shri Chhatrapati Shivaji Maharaj established Swaraj (Own Kingdom) in the country",
+    date: "28/10/2024",
     link: "#",
   },
   {
-    text: "2Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, vero",
-    date: "28/6/1991",
+    text: "Fencing is being played in all the districts of Maharashtra today and Maharashtra",
+    date: "28/10/2024",
     link: "#",
   },
   {
-    text: "3Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, vero",
-    date: "28/6/1991",
+    text: " state tournaments are organized every year in under ten",
+    date: "28/10/2024",
     link: "#",
   },
   {
-    text: "4Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, vero",
-    date: "28/6/1991",
+    text: "Shri Chhatrapati Shivaji Maharaj established Swaraj (Own Kingdom) in the country",
+    date: "28/10/2024",
     link: "#",
   },
   {
-    text: "5Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, vero",
-    date: "28/6/1991",
+    text: "Fencing is being played in all the districts of Maharashtra today and Maharashtra",
+    date: "28/10/2024",
     link: "#",
   },
 ];
@@ -47,25 +59,37 @@ const notices = [
 const ourInspirations = [
   {
     name: "Mr. SATEJ(Bunty) PATIL",
-    image: "http://mahafencing.in/assets/img/satej_patil.png",
+    image: "https://mahafencing.in/images/rajiv.webp",
     designation: "President FAI & MFA",
     description: "Ex. State Home Minister, Govt. of Maharashtra",
   },
   {
     name: "Mr. RAJEEV MEHATA",
-    image: "http://mahafencing.in/assets/img/rajiv.png",
+    image: "https://mahafencing.in/images/rajiv.webp",
     designation: "Secretary ",
     description: "(Shivchhatrapati Awardee)",
   },
   {
     name: "Mr. BASHIR AHMAD",
-    image: "http://mahafencing.in/assets/img/bashir.png",
+    image: "https://mahafencing.in/images/rajiv.webp",
     designation: "Treasurer",
     description: "Fencing Association of India",
   },
   {
     name: "Mr. ASHOK DUDHARE",
-    image: "http://mahafencing.in/assets/img/ashok_dudhare.png",
+    image: "https://mahafencing.in/images/rajiv.webp",
+    designation: "Advisor",
+    description: "Maharashtra Fencing Association",
+  },
+  {
+    name: "Mr. ASHOK DUDHARE",
+    image: "https://mahafencing.in/images/rajiv.webp",
+    designation: "Advisor",
+    description: "Maharashtra Fencing Association",
+  },
+  {
+    name: "Mr. ASHOK DUDHARE",
+    image: "https://mahafencing.in/images/rajiv.webp",
     designation: "Advisor",
     description: "Maharashtra Fencing Association",
   },
@@ -83,6 +107,27 @@ const ourOfficeBearers = [
     name: "Dr. UDAY DONGARE",
     image: "http://mahafencing.in/assets/img/uday.png",
     designation: "Secretary",
+    association: "Maharashtra Fencing Association",
+    additionalInfo: "(Shivchhatrapati Awardee)",
+  },
+  {
+    name: "Mr. RAJKUMAR SOMAVANSHI",
+    image: "http://mahafencing.in/assets/img/rajkumar.png",
+    designation: "Treasurer",
+    association: "Maharashtra Fencing Association",
+    additionalInfo: "(Shivchhatrapati Awardee)",
+  },
+  {
+    name: "Mr. RAJKUMAR SOMAVANSHI",
+    image: "http://mahafencing.in/assets/img/rajkumar.png",
+    designation: "Treasurer",
+    association: "Maharashtra Fencing Association",
+    additionalInfo: "(Shivchhatrapati Awardee)",
+  },
+  {
+    name: "Mr. RAJKUMAR SOMAVANSHI",
+    image: "http://mahafencing.in/assets/img/rajkumar.png",
+    designation: "Treasurer",
     association: "Maharashtra Fencing Association",
     additionalInfo: "(Shivchhatrapati Awardee)",
   },

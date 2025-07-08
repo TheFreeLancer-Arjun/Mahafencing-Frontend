@@ -34,8 +34,11 @@ const AdminLayout = () => {
           />
 
           {/* Main page content */}
-          <div className="bg-yellow-50">
+          <div className="bg-yellow-50 ">
             <Outlet />
+
+
+            
           </div>
         </div>
       </div>

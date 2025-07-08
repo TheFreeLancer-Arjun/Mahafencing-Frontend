@@ -8,8 +8,8 @@ const FencingHistoryPage = () => {
         <h1 className="text-3xl font-bold mt-5 mb-5">{title}</h1>
 
         <div className="lg:flex lg:w-[30cm] gap-10  justify-between">
-          <div className="lg:w-[50%] lg:h-[8cm] ">
-            <img src={imageUrl} alt={title} />
+          <div className="lg:w-[50%] lg:h-[8cm]  ">
+            <img src={imageUrl} alt={title} className=" hover:border-[6px] hover:border-[#51B85D] hover:rounded-lg" />
           </div>
           <p className="lg:w-[50%] lg:h-[8cm] mb-4 font-bold">{part1}</p>
         </div>
@@ -81,33 +81,35 @@ const FencingHistoryPage = () => {
     <div className="bg-yellow-50 anime">
       <div className="w-screen flex gap-2 justify-center items-center p-5">
         <Link
-          className="  rounded-lg text-black hover:bg-green-400 px-10 lg:text-lg xs:text-sm font-bold border py-4 border-b-[3px] border-r-[3px] border-green-400 rounded-t-xl  "
+          className="  rounded-lg text-black hover:bg-[#059ABA] px-10 lg:text-lg xs:text-sm font-bold border py-4 border-b-[3px] border-r-[3px] border-[#059ABA] rounded-t-xl  "
           to="/history/fencing"
         >
           Fencing History
         </Link>
         <Link
-          className="  rounded-lg text-black hover:bg-green-400 px-10 lg:text-lg xs:text-sm font-bold border py-4 border-b-[3px] border-r-[3px] border-green-400 rounded-t-xl  "
+          className="  rounded-lg text-black hover:bg-[#059ABA] px-10 lg:text-lg xs:text-sm font-bold border py-4 border-b-[3px] border-r-[3px] border-[#059ABA] rounded-t-xl  "
           to="/history/fai"
         >
           FAI History
         </Link>
         <Link
-          className="brounded-lg text-black hover:bg-green-400 px-10 lg:text-lg xs:text-sm font-bold border py-4 border-b-[3px] border-r-[3px] border-green-400 rounded-t-xl  "
+          className="brounded-lg text-black hover:bg-[#059ABA] px-10 lg:text-lg xs:text-sm font-bold border py-4 border-b-[3px] border-r-[3px] border-[#059ABA] rounded-t-xl  "
           to="/history/mfa"
         >
-          MFA History
+          M.F.A History
         </Link>
       </div>
 
       <div className="w-full px-4 lg:px-32 py-20 bg-yellow-50">
         <h1
-          style={{ fontWeight: "900", fontFamily: "DynaPuff" }}
-          className="text-2xl lg:text-5xl text-start mt-4 mb-4 font-bold uppercase"
+          style={{
+              fontFamily: "CodeProBlack",
+            }}
+          className="text-5xl lg:text-9xl text-start mt-4 mb-4 font-bold uppercase"
         >
           Fencing History
         </h1>
-        <div className="p-2 border-t-[15px] border-r-[15px] rounded-2xl border-[#06B4DB] flex flex-col lg:flex-row">
+        <div className="p-2 border-t-[15px] border-r-[15px] rounded-2xl border-[#059ABA] flex flex-col lg:flex-row">
           <div className="rounded-lg leading-relaxed  w-full">
             <div className="anime w-full p-5">
               <div className="anime text-black mt-3 lg:mt-7 text-sm lg:text-xl">

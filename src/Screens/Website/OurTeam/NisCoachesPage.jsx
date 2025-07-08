@@ -23,7 +23,18 @@ export default function NisCoachesPage() {
   ];
   return (
     <div>
-      <div className="overflow-x-scroll ">
+          <div className="w-full px-4 lg:px-32 py-20 bg-yellow-50">
+        <h1
+           style={{
+              fontFamily: "CodeProBlack",
+            }}
+          className="text-4xl lg:text-9xl text-start mt-4 mb-4 font-bold uppercase"
+        >
+          nis-coaches
+        </h1>
+        <div className="p-2 border-t-[15px] border-r-[15px] rounded-2xl border-[#51B85D] flex flex-col lg:flex-row">
+          <div className="rounded-lg leading-relaxed  w-full">
+            <div className=" ">
         <table className="min-w-full bg-white border-collapse border border-gray-300">
           <thead>
             <tr className="bg-black text-white">
@@ -50,6 +61,10 @@ export default function NisCoachesPage() {
           </tbody>
         </table>
       </div>
+          </div>
+        </div>
+      </div>
+   
     </div>
   );
 }
